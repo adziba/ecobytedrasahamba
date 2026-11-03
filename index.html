@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eco-Byte: Gemini Canvas Ekoteologi Informatika MTs Muhammadiyah Batang</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        emerald: {
+                            50: '#ecfdf5',
+                            100: '#d1fae5',
+                            500: '#10b981',
+                            600: '#059669',
+                            700: '#047857',
+                            800: '#065f46',
+                            900: '#064e3b',
+                        },
+                        amber: {
+                            50: '#fffbeb',
+                            100: '#fef3c7',
+                            500: '#f59e0b',
+                            600: '#d97706',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #064e3b 0%, #047857 50%, #065f46 100%);
+        }
+        .card-shadow {
+            box-shadow: 0 10px 25px -5px rgba(5, 150, 105, 0.08), 0 8px 10px -6px rgba(5, 150, 105, 0.08);
+        }
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style id="premium-luxury-overrides">
+:root{--lux-forest:#092d25;--lux-forest-2:#104638;--lux-gold:#c7a96b;--lux-cream:#f7f4ec}
+body{background:radial-gradient(ellipse at top left,#e7f2eb 0%,#f8f7f2 42%,#eef2f0 100%)!important;letter-spacing:-.01em}
+.dark body{background:radial-gradient(ellipse at top left,#112c25 0%,#0b1715 55%,#111827 100%)!important}
+header.gradient-bg{background:linear-gradient(115deg,#071f1a 0%,#0c3a2e 48%,#145442 100%)!important;box-shadow:0 12px 36px #062a2030!important;border-bottom:1px solid #c7a96b55}
+.card-shadow{box-shadow:0 14px 36px rgba(8,45,34,.075),0 2px 6px rgba(8,45,34,.035)!important}
+main .bg-white{border-color:#d9e5dc!important;border-radius:22px!important}
+button{transition:transform .18s ease,box-shadow .18s ease,filter .18s ease}button:hover{filter:brightness(1.04)}button:active{transform:translateY(1px)}
+.gradient-bg{background:linear-gradient(120deg,#0a3027,#14664d 62%,#b99a5b)!important}
+input:focus,textarea:focus,select:focus{box-shadow:0 0 0 3px #c7a96b30!important;border-color:#b99a5b!important}
+footer{background:linear-gradient(110deg,#061b17,#0c3027)!important;border-top:1px solid #c7a96b55!important}
+#premiumBar{background:linear-gradient(90deg,#0b3027,#154f3e);color:#f7f3e8;border:1px solid #c7a96b55;border-radius:18px;padding:13px 16px;margin:0 0 22px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;box-shadow:0 10px 28px #092d251a}
+#premiumBar .gold{color:#e4c98c}.premium-action{background:#c7a96b;color:#132820;border:1px solid #e2ca91;border-radius:11px;padding:9px 13px;font-size:12px;font-weight:800;cursor:pointer}.premium-action.secondary{background:#ffffff12;color:#fff;border-color:#ffffff30}
+#historyPanel{margin-top:18px;border:1px solid #d7e4da;border-radius:18px;padding:18px;background:linear-gradient(145deg,#fff,#f5f8f4)}.dark #historyPanel{background:linear-gradient(145deg,#172a25,#111c1a);border-color:#345447}
+#historyTable{width:100%;border-collapse:collapse;font-size:12px}#historyTable th,#historyTable td{text-align:left;padding:10px 8px;border-bottom:1px solid #dce6df}.dark #historyTable th,.dark #historyTable td{border-color:#33443e}#historyTable th{color:#987a3e;text-transform:uppercase;letter-spacing:.08em;font-size:10px}
+.premium-chip{display:inline-flex;align-items:center;gap:6px;border:1px solid #c7a96b66;border-radius:999px;padding:5px 9px;color:#d8bd7f;font-size:10px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+#ecoAuthOverlay{position:fixed;inset:0;z-index:99999;background:linear-gradient(130deg,#061b17f5,#0c3027f7);display:flex;align-items:center;justify-content:center;padding:18px}#ecoAuthCard{max-width:420px;width:100%;background:#f9faf6;border:1px solid #c7a96b;border-radius:24px;padding:25px;box-shadow:0 30px 90px #0005;color:#142d24}#ecoAuthCard input{width:100%;padding:12px;border:1px solid #d5dfd8;border-radius:10px;margin-top:6px;color:#142d24;background:white}#ecoAuthStatus{font-size:12px;min-height:18px;margin-top:10px;color:#9b422f}
+#ecoAdminPanel{margin:16px 0;padding:18px;border:1px solid #c7a96b66;border-radius:18px;background:#fff}.dark #ecoAdminPanel{background:#172a25;color:#eee}
+@media(max-width:640px){#premiumBar{align-items:flex-start}#historyTable{min-width:600px}#historyWrap{overflow-x:auto}}
+@media print{header,footer,#premiumBar,#ecoAuthOverlay,button{display:none!important}body{background:#fff!important}main{max-width:none!important}.card-shadow{box-shadow:none!important}}
+</style>
+</head>
+<body class="bg-slate-50 dark:bg-slate-900 font-sans text-slate-800 dark:text-slate-100 min-h-screen flex flex-col justify-between transition-colors duration-300">
+
+    <header class="gradient-bg text-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-4 py-3 flex flex-wrap justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <div class="bg-white/10 p-2.5 rounded-xl backdrop-blur-md border border-white/20">
+                    <i class="fa-solid fa-leaf text-emerald-300 text-2xl"></i>
+                </div>
+                <div>
+                    <h1 class="font-extrabold text-lg md:text-2xl tracking-tight leading-none flex items-center gap-2">
+                        ECO-BYTE 
+                        <span class="text-emerald-200 text-xs font-semibold px-2.5 py-1 bg-emerald-800/80 rounded-full border border-emerald-400/40">
+                            MTs Muhammadiyah Batang
+                        </span>
+                    </h1>
+                    <p class="text-[11px] md:text-xs text-emerald-100 opacity-90 mt-0.5">Informatika MTs • Computational Thinking & Green Muhammadiyah Ekoteologi</p>
+                </div>
+            </div>
+            
+            <div class="mt-2 sm:mt-0 flex items-center space-x-2">
+                <button onclick="toggleDarkMode()" class="bg-emerald-900/60 hover:bg-emerald-800/80 p-2 rounded-xl border border-emerald-500/30 text-amber-300 transition" title="Ubah Mode Gelap/Terang">
+                    <i id="themeIcon" class="fa-solid fa-moon"></i>
+                </button>
+                <div class="bg-emerald-900/50 px-3 py-1.5 rounded-xl border border-emerald-500/30 text-xs font-medium flex items-center space-x-1.5">
+                    <i class="fa-solid fa-sparkles text-amber-300"></i>
+                    <span>Gemini Academy 2026</span>
+                </div>
+            </div>
+        </div>
+
+        <nav class="max-w-6xl mx-auto px-4 bg-emerald-900/40 border-t border-white/10 flex overflow-x-auto text-xs md:text-sm no-scrollbar">
+            <button onclick="switchTab('kalkulator')" id="tab-kalkulator" class="px-4 py-2.5 font-medium whitespace-nowrap text-white hover:text-emerald-200 transition border-b-2 border-emerald-400">
+                <i class="fa-solid fa-calculator mr-1.5"></i> 1. Kalkulator Jejak Karbon
+            </button>
+            <button onclick="switchTab('simulasi')" id="tab-simulasi" class="px-4 py-2.5 font-medium whitespace-nowrap text-emerald-200 hover:text-white transition border-b-2 border-transparent">
+                <i class="fa-solid fa-sliders mr-1.5"></i> 2. Simulasi Interaktif
+            </button>
+            <button onclick="switchTab('worksheet')" id="tab-worksheet" class="px-4 py-2.5 font-medium whitespace-nowrap text-emerald-200 hover:text-white transition border-b-2 border-transparent">
+                <i class="fa-solid fa-file-pen mr-1.5"></i> 3. LKPD / Eksplorasi Kasus
+            </button>
+            <button onclick="switchTab('kuis')" id="tab-kuis" class="px-4 py-2.5 font-medium whitespace-nowrap text-emerald-200 hover:text-white transition border-b-2 border-transparent">
+                <i class="fa-solid fa-brain mr-1.5"></i> 4. Kuis Ekoteologi
+            </button>
+            <button onclick="switchTab('dashboard')" id="tab-dashboard" class="px-4 py-2.5 font-medium whitespace-nowrap text-emerald-200 hover:text-white transition border-b-2 border-transparent">
+                <i class="fa-solid fa-chart-pie mr-1.5"></i> 5. Dashboard & Sertifikat
+            </button>
+        </nav>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-4 py-6 w-full flex-grow">
+<div id="premiumBar">
+ <div><div class="premium-chip"><i class="fa-solid fa-gem"></i> Premium Edition • 2026</div><div style="font-size:15px;font-weight:800;margin-top:7px">Eco-Byte <span class="gold">Impact Studio</span></div><div style="font-size:11px;opacity:.78;margin-top:2px">Audit • LKPD • Kuis • AI • Portofolio</div></div>
+ <div style="display:flex;gap:8px;flex-wrap:wrap"><span id="ecoSessionLabel" style="font-size:11px;align-self:center;color:#e7e0cb">Belum masuk</span><button class="premium-action secondary" type="button" onclick="saveAuditRecord()"><i class="fa-solid fa-cloud-arrow-up"></i> Simpan Audit</button><button class="premium-action secondary" type="button" onclick="exportAuditCSV()"><i class="fa-solid fa-file-csv"></i> Ekspor CSV</button><button class="premium-action" type="button" onclick="window.print()"><i class="fa-solid fa-print"></i> Cetak</button><button class="premium-action secondary" type="button" onclick="ecoLogout()">Keluar</button></div>
+</div>
+        
+        <!-- Hero Introduction Banner -->
+        <section class="bg-white dark:bg-slate-800 rounded-2xl p-6 mb-6 card-shadow border border-emerald-100 dark:border-slate-700 relative overflow-hidden transition-colors">
+            <div class="absolute -right-10 -bottom-10 opacity-5 dark:opacity-10 pointer-events-none">
+                <i class="fa-solid fa-sun text-9xl text-emerald-900 dark:text-emerald-400"></i>
+            </div>
+            <div class="relative z-10 max-w-3xl">
+                <div class="inline-flex items-center space-x-2 bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-200 dark:border-emerald-800 text-emerald-800 dark:text-emerald-300 text-xs font-bold px-3 py-1 rounded-full mb-2">
+                    <i class="fa-solid fa-sun"></i>
+                    <span>Informatika & Majelis Lingkungan Hidup MTs Muhammadiyah Batang</span>
+                </div>
+                <h2 class="text-xl md:text-2xl font-extrabold text-slate-900 dark:text-white mb-2">Eco-Audit Intelligence: Digital Impact & Green Madrasah</h2>
+                <p class="text-slate-600 dark:text-slate-300 text-xs md:text-sm leading-relaxed">
+                    Menjadi <span class="font-semibold text-emerald-700 dark:text-emerald-400">Khalifah fil 'Ardh</span> menuntut siswa MTs Muhammadiyah Batang untuk bijak memilah sampah fisik (plastik kantin) dan sampah digital (*digital waste* server cloud). Setiap sampah file membutuhkan daya listrik pusat data yang menghasilkan emisi karbon!
+                </p>
+            </div>
+        </section>
+
+        <div id="view-kalkulator" class="grid grid-cols-1 lg:col-span-12 gap-6">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 w-full">
+                <!-- Form Input -->
+                <div class="lg:col-span-7 space-y-6">
+                    <div class="bg-white dark:bg-slate-800 p-6 rounded-2xl card-shadow border border-slate-100 dark:border-slate-700 transition-colors">
+                        <div class="flex items-center space-x-3 mb-4 pb-3 border-b border-slate-100 dark:border-slate-700">
+                            <div class="bg-emerald-100 dark:bg-emerald-900/50 text-emerald-700 dark:text-emerald-300 p-2.5 rounded-xl">
+                                <i class="fa-solid fa-calculator text-lg"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-base text-slate-900 dark:text-white">Kalkulator Eco-Audit Siswa</h3>
+                                <p class="text-xs text-slate-500 dark:text-slate-400">Hitung estimasi dampak sampah fisik & digital harianmu</p>
+                            </div>
+                        </div>
+
+                        <form id="auditForm" onsubmit="event.preventDefault(); calculateImpact(); saveAuditRecord();" class="space-y-4">
+                            <div>
+                                <label class="block text-xs font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider mb-1">
+                                    <i class="fa-solid fa-user-graduate text-emerald-600 dark:text-emerald-400 mr-1"></i> Nama Siswa & Kelas
+                                </label>
+                                <div class="grid grid-cols-3 gap-2">
+                                    <input type="text" id="studentName" value="Ahmad Dahlan" placeholder="Nama Lengkap" class="col-span-2 px-3 py-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-100 text-sm focus:ring-2 focus:ring-emerald-500 outline-none">
+                                    <input type="text" id="studentClass" value="8A" placeholder="Kelas" class="col-span-1 px-3 py-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-100 text-sm focus:ring-2 focus:ring-emerald-500 outline-none">
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider mb-1">
+                                    <i class="fa-solid fa-bottle-water text-emerald-600 dark:text-emerald-400 mr-1"></i> 1. Botol Plastik Kantin / Hari
+                                </label>
+                                <input type="number" id="plasticInput" min="0" value="3" class="w-full px-3 py-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-100 text-sm focus:ring-2 focus:ring-emerald-500 outline-none">
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider mb-1">
+                                    <i class="fa-solid fa-box-archive text-emerald-600 dark:text-emerald-400 mr-1"></i> 2. Email / File Sampah (@madrasah)
+                                </label>
+                                <input type="number" id="digitalInput" min="0" value="450" class="w-full px-3 py-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-100 text-sm focus:ring-2 focus:ring-emerald-500 outline-none">
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider mb-1">
+                                    <i class="fa-solid fa-calendar-days text-emerald-600 dark:text-emerald-400 mr-1"></i> 3. Durasi Audit
+                                </label>
+                                <select id="daysInput" class="w-full px-3 py-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-100 text-sm focus:ring-2 focus:ring-emerald-500 outline-none">
+                                    <option value="30">1 Bulan (30 Hari)</option>
+                                    <option value="180">1 Semester (6 Bulan)</option>
+                                    <option value="365">1 Tahun Ajaran</option>
+                                </select>
+                            </div>
+
+                            <button type="submit" class="w-full gradient-bg hover:opacity-95 text-white font-bold py-3 px-4 rounded-xl shadow transition text-xs md:text-sm flex items-center justify-center space-x-2">
+                                <i class="fa-solid fa-chart-line"></i>
+                                <span>Hitung & Analisis Data</span>
+                            </button>
+                        </form>
+                    </div>
+
+                    <!-- Gemini AI Assistant Box -->
+                    <div class="bg-gradient-to-br from-slate-900 to-emerald-950 text-white p-5 rounded-2xl card-shadow border border-emerald-800/40">
+                        <div class="flex items-center justify-between mb-3">
+                            <div class="flex items-center space-x-2">
+                                <span class="p-1.5 bg-amber-400 text-slate-900 rounded-lg text-xs font-bold">
+                                    <i class="fa-solid fa-robot"></i>
+                                </span>
+                                <h4 class="font-bold text-xs md:text-sm">Gemini AI Assistant - Ekoteologi Reframing</h4>
+                            </div>
+                            <button onclick="askGeminiLive()" class="text-[11px] bg-emerald-600 hover:bg-emerald-500 text-white px-3 py-1 rounded-lg transition font-medium flex items-center space-x-1">
+                                <i class="fa-solid fa-sparkles text-amber-300"></i>
+                                <span>Minta Analisis AI</span>
+                            </button>
+                        </div>
+                        <div id="aiSuggestion" class="text-xs text-slate-300 leading-relaxed bg-black/30 p-3.5 rounded-xl border border-white/5 space-y-2">
+                            <p class="italic text-slate-400">Klik "Minta Analisis AI" untuk menghasilkan rekomendasi aksi kontekstual berbasis data dari Gemini 3 Flash...</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Analysis Output Stats -->
+                <div class="lg:col-span-5 space-y-4">
+                    <div class="bg-white dark:bg-slate-800 p-5 rounded-2xl card-shadow border border-slate-100 dark:border-slate-700 transition-colors">
+                        <h3 class="font-bold text-base text-slate-900 dark:text-white mb-3 pb-2 border-b border-slate-100 dark:border-slate-700 flex items-center justify-between">
+                            <span>Hasil Output Data</span>
+                            <span id="periodBadge" class="text-xs font-medium text-emerald-700 dark:text-emerald-300 bg-emerald-50 dark:bg-emerald-950/80 px-2.5 py-0.5 rounded-full border border-emerald-200 dark:border-emerald-800">30 Hari</span>
+                        </h3>
+
+                        <div class="space-y-3">
+                            <div class="bg-slate-50 dark:bg-slate-900/60 p-3.5 rounded-xl border border-slate-100 dark:border-slate-700 flex items-center justify-between">
+                                <div class="flex items-center space-x-3">
+                                    <div class="bg-amber-100 dark:bg-amber-950/60 text-amber-600 dark:text-amber-400 p-2.5 rounded-lg">
+                                        <i class="fa-solid fa-bottle-water text-lg"></i>
+                                    </div>
+                                    <div>
+                                        <p class="text-[11px] text-slate-500 dark:text-slate-400 font-medium">Sampah Plastik Fisik</p>
+                                        <h4 id="statPlastic" class="text-lg font-black text-slate-800 dark:text-white">90 <span class="text-xs font-normal text-slate-500">Botol</span></h4>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="bg-slate-50 dark:bg-slate-900/60 p-3.5 rounded-xl border border-slate-100 dark:border-slate-700 flex items-center justify-between">
+                                <div class="flex items-center space-x-3">
+                                    <div class="bg-emerald-100 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 p-2.5 rounded-lg">
+                                        <i class="fa-solid fa-cloud text-lg"></i>
+                                    </div>
+                                    <div>
+                                        <p class="text-[11px] text-slate-500 dark:text-slate-400 font-medium">Jejak Karbon Digital</p>
+                                        <h4 id="statCarbon" class="text-lg font-black text-slate-800 dark:text-white">1.8 <span class="text-xs font-normal text-slate-500">kg CO2e</span></h4>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="bg-slate-50 dark:bg-slate-900/60 p-3.5 rounded-xl border border-slate-100 dark:border-slate-700 flex items-center justify-between">
+                                <div class="flex items-center space-x-3">
+                                    <div class="bg-blue-100 dark:bg-blue-950/60 text-blue-600 dark:text-blue-400 p-2.5 rounded-lg">
+                                        <i class="fa-solid fa-bolt text-lg"></i>
+                                    </div>
+                                    <div>
+                                        <p class="text-[11px] text-slate-500 dark:text-slate-400 font-medium">Setara Charge Ponsel</p>
+                                        <h4 id="statEnergy" class="text-lg font-black text-slate-800 dark:text-white">225 <span class="text-xs font-normal text-slate-500">Kali</span></h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mt-4 p-3.5 rounded-xl bg-emerald-50 dark:bg-emerald-950/50 border border-emerald-200 dark:border-emerald-800">
+                            <div class="flex items-center space-x-2 text-emerald-800 dark:text-emerald-300 font-bold text-xs mb-1">
+                                <i class="fa-solid fa-book-quran"></i>
+                                <span>Refleksi Tafakkur (QS. Al-A'raf: 56)</span>
+                            </div>
+                            <p id="reflectionText" class="text-xs text-emerald-900 dark:text-emerald-200 leading-relaxed">
+                                Membersihkan sampah data membantu menghemat energi server serta menjaga keseimbangan alam (*Tawazun*).
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="view-simulasi" class="hidden space-y-6">
+            <div class="bg-white dark:bg-slate-800 p-6 rounded-2xl card-shadow border border-slate-100 dark:border-slate-700 transition-colors">
+                <div class="flex flex-wrap items-center justify-between mb-4 pb-3 border-b border-slate-100 dark:border-slate-700 gap-2">
+                    <div>
+                        <h3 class="font-bold text-lg text-slate-900 dark:text-white">Simulasi Interaktif: Server Load vs Pembersihan Data</h3>
+                        <p class="text-xs text-slate-500 dark:text-slate-400">Geser slider untuk melihat efisiensi energi server Google Cloud & pengurangan emisi</p>
+                    </div>
+                    <span class="bg-emerald-100 text-emerald-800 dark:bg-emerald-900 dark:text-emerald-200 text-xs font-bold px-3 py-1 rounded-full">Simulasi Live</span>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">
+                                Jumlah Siswa MTs Muhammadiyah Batang Ikut Aksi: <span id="simStudentsVal" class="text-emerald-700 dark:text-emerald-400 font-black text-sm">250 Siswa</span>
+                            </label>
+                            <input type="range" id="simStudents" min="10" max="1000" value="250" class="w-full accent-emerald-600" oninput="updateSimulation()">
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">
+                                Email Spam Dihapus per Siswa: <span id="simEmailsVal" class="text-emerald-700 dark:text-emerald-400 font-black text-sm">100 Email</span>
+                            </label>
+                            <input type="range" id="simEmails" min="10" max="500" value="100" class="w-full accent-emerald-600" oninput="updateSimulation()">
+                        </div>
+
+                        <div class="bg-slate-50 dark:bg-slate-900/60 p-4 rounded-xl border border-slate-200 dark:border-slate-700 text-xs space-y-2">
+                            <div class="flex justify-between">
+                                <span class="text-slate-600 dark:text-slate-400">Total Email Terhapus:</span>
+                                <span id="simTotalFiles" class="font-bold text-slate-800 dark:text-slate-200">25,000 Email</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-slate-600 dark:text-slate-400">Penyimpanan Dikosongkan:</span>
+                                <span id="simStorage" class="font-bold text-emerald-700 dark:text-emerald-400">18.75 GB</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-slate-600 dark:text-slate-400">Pengurangan Karbon Tahunan:</span>
+                                <span id="simCarbonSaved" class="font-bold text-emerald-700 dark:text-emerald-400">100 kg CO2e</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Visual Graphic Representation -->
+                    <div class="bg-slate-900 text-white p-6 rounded-2xl flex flex-col items-center justify-center text-center space-y-3">
+                        <div class="relative flex items-center justify-center">
+                            <i id="serverIcon" class="fa-solid fa-server text-6xl text-emerald-400 transition-all duration-300"></i>
+                            <i class="fa-solid fa-leaf text-amber-300 text-2xl absolute -top-2 -right-2 animate-bounce"></i>
+                        </div>
+                        <h4 class="font-bold text-sm text-emerald-300">Indeks Efisiensi Energi Server Madrasah</h4>
+                        <div class="w-full bg-slate-700 rounded-full h-3 overflow-hidden">
+                            <div id="simProgressBar" class="bg-gradient-to-r from-amber-400 to-emerald-400 h-3 transition-all duration-500" style="width: 65%;"></div>
+                        </div>
+                        <p id="simStatusText" class="text-xs text-slate-300">
+                            Luar biasa! Aksi kolektif ini setara dengan menanam <strong class="text-amber-300">5 pohon</strong> untuk menyerap emisi karbon!
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="view-worksheet" class="hidden space-y-6">
+            <div class="bg-white dark:bg-slate-800 p-6 rounded-2xl card-shadow border border-slate-100 dark:border-slate-700 transition-colors">
+                <div class="flex items-center space-x-3 mb-4 pb-3 border-b border-slate-100 dark:border-slate-700">
+                    <div class="bg-emerald-100 dark:bg-emerald-900/50 text-emerald-700 dark:text-emerald-300 p-2.5 rounded-xl">
+                        <i class="fa-solid fa-file-pen text-lg"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-base text-slate-900 dark:text-white">LKPD Interaktif: Eksplorasi Dampak Sosial Informatika (DSI)</h3>
+                        <p class="text-xs text-slate-500 dark:text-slate-400">Lembar Kerja Peserta Didik Informatika Kelas 8 MTs Muhammadiyah Batang</p>
+                    </div>
+                </div>
+
+                <div class="space-y-4 text-xs md:text-sm">
+                    <div class="bg-amber-50 dark:bg-amber-950/40 p-4 rounded-xl border border-amber-200 dark:border-amber-800">
+                        <h4 class="font-bold text-amber-900 dark:text-amber-300 mb-1"><i class="fa-solid fa-circle-exclamation mr-1"></i> Studi Kasus: "Penumpukan Foto Mentah di Google Drive Ikatan Pelajar Muhammadiyah (IPM)"</h4>
+                        <p class="text-amber-800 dark:text-amber-200 leading-relaxed">
+                            Panitia IPM MTs Muhammadiyah Batang mengunggah 5,000 foto mentah kegiatan milad tanpa dipilah ke akun Google Drive. Sebagian besar foto ganda dan berukuran sangat besar. Bagaimana analisis komputasional dan sudut pandang ekoteologi Islam terhadap kasus ini?
+                        </p>
+                    </div>
+
+                    <form id="lkpdForm" onsubmit="event.preventDefault(); submitLKPD();" class="space-y-3">
+                        <div>
+                            <label class="block font-bold text-slate-700 dark:text-slate-300 mb-1">1. Analisis Problem Komputasional (Computational Thinking):</label>
+                            <textarea id="lkpdQ1" rows="2" class="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-100 text-xs focus:ring-2 focus:ring-emerald-500 outline-none" placeholder="Tuliskan analisis komputasi Anda (misal: redundansi data, kompresi, penyaringan file)..."></textarea>
+                        </div>
+
+                        <div>
+                            <label class="block font-bold text-slate-700 dark:text-slate-300 mb-1">2. Solusi Ekoteologi & Langkah Efisiensi Digital:</label>
+                            <textarea id="lkpdQ2" rows="2" class="w-full p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-100 text-xs focus:ring-2 focus:ring-emerald-500 outline-none" placeholder="Bagaimana penerapan prinsip Islam (tidak Israf/Tabdzir) dalam pengelolaan media digital ini?..."></textarea>
+                        </div>
+
+                        <button type="submit" class="gradient-bg text-white font-bold px-4 py-2 rounded-xl text-xs flex items-center space-x-1.5 hover:opacity-95">
+                            <i class="fa-solid fa-paper-plane"></i>
+                            <span>Simpan Refleksi LKPD</span>
+                        </button>
+                    </form>
+
+                    <div id="lkpdFeedback" class="hidden p-4 rounded-xl bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-200 dark:border-emerald-800 text-xs text-emerald-900 dark:text-emerald-200">
+                        <p class="font-bold mb-1"><i class="fa-solid fa-check-circle text-emerald-600 mr-1"></i> Jawaban LKPD Berhasil Disimpan!</p>
+                        <p class="text-slate-600 dark:text-slate-300">Hasil eksplorasi Anda siap diunduh/disalin untuk dimasukkan ke dalam Portofolio Google Sites siswa.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="view-kuis" class="hidden space-y-6">
+            <div class="bg-white dark:bg-slate-800 p-6 rounded-2xl card-shadow border border-slate-100 dark:border-slate-700 transition-colors">
+                <div class="flex items-center space-x-3 mb-4 pb-3 border-b border-slate-100 dark:border-slate-700">
+                    <div class="bg-emerald-100 dark:bg-emerald-900/50 text-emerald-700 dark:text-emerald-300 p-2.5 rounded-xl">
+                        <i class="fa-solid fa-brain text-lg"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-base text-slate-900 dark:text-white">Kuis Cepat: Computational Thinking & Ekoteologi</h3>
+                        <p class="text-xs text-slate-500 dark:text-slate-400">Uji pemahamanmu tentang keterkaitan data digital dan kelestarian alam</p>
+                    </div>
+                </div>
+
+                <div id="quizContainer" class="space-y-6 text-xs md:text-sm">
+                    <!-- Soal 1 -->
+                    <div class="p-4 bg-slate-50 dark:bg-slate-900/50 rounded-xl border border-slate-200 dark:border-slate-700 space-y-2">
+                        <p class="font-bold text-slate-800 dark:text-slate-200">1. Mengapa pembersihan email/file sampah digital berhubungan dengan pengurangan emisi karbon?</p>
+                        <div class="space-y-1.5 pl-2">
+                            <label class="flex items-center space-x-2 cursor-pointer">
+                                <input type="radio" name="q1" value="a" class="text-emerald-600">
+                                <span>a. Karena file sampah memancarkan radiasi langsung ke udara</span>
+                            </label>
+                            <label class="flex items-center space-x-2 cursor-pointer">
+                                <input type="radio" name="q1" value="b" class="text-emerald-600">
+                                <span>b. Karena penyimpanan cloud membutuhkan energi listrik pusat data secara kontinyu</span>
+                            </label>
+                            <label class="flex items-center space-x-2 cursor-pointer">
+                                <input type="radio" name="q1" value="c" class="text-emerald-600">
+                                <span>c. Karena file yang menumpuk membuat laptop cepat berkarat</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Soal 2 -->
+                    <div class="p-4 bg-slate-50 dark:bg-slate-900/50 rounded-xl border border-slate-200 dark:border-slate-700 space-y-2">
+                        <p class="font-bold text-slate-800 dark:text-slate-200">2. Prinsip ajaran Islam yang melarang pemborosan energi dan tempat penyimpanan adalah...</p>
+                        <div class="space-y-1.5 pl-2">
+                            <label class="flex items-center space-x-2 cursor-pointer">
+                                <input type="radio" name="q2" value="a" class="text-emerald-600">
+                                <span>a. Larangan Israf dan Tabdzir</span>
+                            </label>
+                            <label class="flex items-center space-x-2 cursor-pointer">
+                                <input type="radio" name="q2" value="b" class="text-emerald-600">
+                                <span>b. Tawakkal</span>
+                            </label>
+                            <label class="flex items-center space-x-2 cursor-pointer">
+                                <input type="radio" name="q2" value="c" class="text-emerald-600">
+                                <span>c. Qana'ah</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <button onclick="submitQuiz()" class="gradient-bg text-white font-bold px-5 py-2.5 rounded-xl text-xs flex items-center space-x-2 hover:opacity-95">
+                        <i class="fa-solid fa-check-double"></i>
+                        <span>Periksa Jawaban Kuis</span>
+                    </button>
+
+                    <div id="quizResult" class="hidden p-4 rounded-xl font-bold text-center"></div>
+                </div>
+            </div>
+        </div>
+
+        <div id="view-dashboard" class="hidden space-y-6">
+            <div class="bg-white dark:bg-slate-800 p-6 rounded-2xl card-shadow border border-slate-100 dark:border-slate-700 transition-colors">
+                <div class="flex items-center justify-between mb-4 pb-3 border-b border-slate-100 dark:border-slate-700">
+                    <div>
+                        <h3 class="font-bold text-lg text-slate-900 dark:text-white">Dashboard Aksi Lingkungan & Sertifikat Duta Eco-Byte</h3>
+                        <p class="text-xs text-slate-500 dark:text-slate-400">Komitmen "Jumat Bersih Digital & Fisik" MTs Muhammadiyah Batang</p>
+                    </div>
+                    <span class="bg-emerald-600 text-white text-xs px-3 py-1 rounded-full font-semibold">Aktif Hari Ini</span>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+                    <div class="p-4 bg-emerald-50 dark:bg-emerald-950/50 rounded-xl border border-emerald-200 dark:border-emerald-800 text-center">
+                        <i class="fa-solid fa-trash-can text-2xl text-emerald-600 dark:text-emerald-400 mb-1"></i>
+                        <h4 class="font-bold text-sm text-slate-800 dark:text-slate-200">Target Email Terhapus</h4>
+                        <p class="text-xl font-extrabold text-emerald-700 dark:text-emerald-400 mt-1">1,250 File</p>
+                    </div>
+                    <div class="p-4 bg-amber-50 dark:bg-amber-950/50 rounded-xl border border-amber-200 dark:border-amber-800 text-center">
+                        <i class="fa-solid fa-recycle text-2xl text-amber-600 dark:text-amber-400 mb-1"></i>
+                        <h4 class="font-bold text-sm text-slate-800 dark:text-slate-200">Botol Tumbler Digunakan</h4>
+                        <p class="text-xl font-extrabold text-amber-700 dark:text-amber-400 mt-1">100% Siswa</p>
+                    </div>
+                    <div class="p-4 bg-blue-50 dark:bg-blue-950/50 rounded-xl border border-blue-200 dark:border-blue-800 text-center">
+                        <i class="fa-solid fa-tree text-2xl text-blue-600 dark:text-blue-400 mb-1"></i>
+                        <h4 class="font-bold text-sm text-slate-800 dark:text-slate-200">Status Eco-Madrasah</h4>
+                        <p class="text-xl font-extrabold text-blue-700 dark:text-blue-400 mt-1">Kategori Hijau</p>
+                    </div>
+                </div>
+
+                <div class="flex flex-wrap items-center justify-between bg-slate-900 text-white p-4 rounded-xl mb-6 gap-3">
+                    <div>
+                        <h4 class="font-bold text-sm text-emerald-300">Cetak Laporan & Sertifikat Duta Ekoteologi</h4>
+                        <p class="text-xs text-slate-300">Unduh bukti aksi nyata kelestarian lingkunganmu dalam format PDF</p>
+                    </div>
+                    <button onclick="generateCertificatePDF()" class="bg-amber-400 hover:bg-amber-300 text-slate-900 font-bold px-4 py-2 rounded-lg text-xs transition flex items-center space-x-1.5 shadow">
+                        <i class="fa-solid fa-file-pdf"></i>
+                        <span>Unduh Sertifikat PDF</span>
+                    </button>
+                </div>
+
+                <!-- Preview Certificate Template -->
+                <div id="certificateTemplate" class="p-6 bg-slate-50 dark:bg-slate-900 rounded-2xl border-2 border-dashed border-emerald-300 dark:border-emerald-800 space-y-4 text-center">
+                    <div class="flex justify-between items-center border-b border-emerald-200 pb-3">
+                        <span class="font-bold text-xs text-emerald-800 dark:text-emerald-300 uppercase tracking-widest">MTs Muhammadiyah Batang</span>
+                        <span class="text-[10px] text-slate-500">Gemini Academy Competition 2026</span>
+                    </div>
+                    <i class="fa-solid fa-award text-4xl text-amber-500 my-1"></i>
+                    <h3 class="text-lg font-black text-slate-900 dark:text-white uppercase tracking-tight">Sertifikat Duta Ekoteologi Digital</h3>
+                    <p class="text-xs text-slate-600 dark:text-slate-300">Diberikan kepada siswa atas partisipasi aktif dalam pembersihan jejak karbon digital & fisik madrasah:</p>
+                    <h4 id="certStudentName" class="text-xl font-bold text-emerald-700 dark:text-emerald-400 underline decoration-amber-400">Ahmad Dahlan (MTs Muhammadiyah Batang)</h4>
+                    <p id="certSummary" class="text-xs text-slate-500 dark:text-slate-400 italic">"Telah menghemat emisi sebesar 1.8 kg CO2e dan menjaga kelestarian lingkungan madrasah."</p>
+                </div>
+            </div>
+        </div>
+
+<div id="ecoAdminPanel" class="hidden">
+ <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap"><div><div style="font-weight:900;color:#b39455"><i class="fa-solid fa-shield-halved"></i> Panel Guru / Admin</div><div style="font-size:11px;opacity:.7">Rekap data tersimpan di Google Sheets.</div></div><button class="premium-action" onclick="loadServerRecords()">Muat ulang rekap</button></div>
+ <div id="ecoAdminSummary" style="margin-top:12px;font-size:13px">Tekan “Muat ulang rekap” untuk melihat ringkasan.</div>
+ <div id="ecoAdminTableWrap" style="overflow-x:auto;margin-top:10px"></div>
+</div>
+<div id="historyPanel">
+ <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:12px"><div><div style="font-size:15px;font-weight:800;color:#b39455"><i class="fa-solid fa-cloud-arrow-up"></i> Status Penyimpanan Server</div><div id="serverSaveStatus" style="font-size:11px;opacity:.72;margin-top:3px">Belum ada data dikirim pada sesi ini.</div></div><button class="premium-action" onclick="saveAuditRecord()">Simpan hasil audit sekarang</button></div>
+ <div style="font-size:12px;line-height:1.6">Audit, LKPD, dan kuis akan dikirim ke Google Sheets setelah dikirim dari aplikasi. Penyimpanan lokal hanya menjadi cadangan tampilan, bukan sumber data utama.</div>
+</div>
+
+    </main>
+
+    <footer class="bg-slate-900 text-slate-400 py-6 border-t border-slate-800 mt-8">
+        <div class="max-w-6xl mx-auto px-4 text-center text-xs space-y-2">
+            <p class="font-medium text-slate-300">Inovasi Pembelajaran Informatika MTs Muhammadiyah Batang • Gemini Academy Competition 2026</p>
+            <p>Dikembangkan dengan Gemini Canvas & Akun Google Workspace Madrasah (@madrasah.kemenag.go.id)</p>
+        </div>
+    </footer>
+
+    <script>
+        function toggleDarkMode() {
+            const html = document.documentElement;
+            const icon = document.getElementById('themeIcon');
+            if (html.classList.contains('dark')) {
+                html.classList.remove('dark');
+                icon.className = 'fa-solid fa-moon';
+            } else {
+                html.classList.add('dark');
+                icon.className = 'fa-solid fa-sun text-amber-300';
+            }
+        }
+
+        function switchTab(tabName) {
+            const tabs = ['kalkulator', 'simulasi', 'worksheet', 'kuis', 'dashboard'];
+            tabs.forEach(t => {
+                const view = document.getElementById(`view-${t}`);
+                if(view) view.classList.add('hidden');
+                
+                const btn = document.getElementById(`tab-${t}`);
+                if(btn) {
+                    btn.classList.remove('border-emerald-400', 'text-white');
+                    btn.classList.add('border-transparent', 'text-emerald-200');
+                }
+            });
+
+            const activeView = document.getElementById(`view-${tabName}`);
+            if(activeView) activeView.classList.remove('hidden');
+            
+            const activeBtn = document.getElementById(`tab-${tabName}`);
+            if(activeBtn) {
+                activeBtn.classList.add('border-emerald-400', 'text-white');
+                activeBtn.classList.remove('border-transparent', 'text-emerald-200');
+            }
+        }
+
+        function calculateImpact() {
+            const name = document.getElementById('studentName').value || "Siswa";
+            const sClass = document.getElementById('studentClass').value || "8";
+            const plasticPerDay = parseFloat(document.getElementById('plasticInput').value) || 0;
+            const digitalItems = parseFloat(document.getElementById('digitalInput').value) || 0;
+            const days = parseInt(document.getElementById('daysInput').value) || 30;
+
+            const totalPlastic = plasticPerDay * days;
+            const digitalCarbonKg = (digitalItems * 0.004) * (days / 365);
+            const plasticCarbonKg = totalPlastic * 0.082;
+            const totalCarbonKg = (digitalCarbonKg + plasticCarbonKg).toFixed(2);
+            const chargesEquivalent = Math.round((parseFloat(totalCarbonKg)) / 0.008);
+
+            document.getElementById('statPlastic').innerHTML = `${totalPlastic} <span class="text-xs font-normal text-slate-500">Botol</span>`;
+            document.getElementById('statCarbon').innerHTML = `${totalCarbonKg} <span class="text-xs font-normal text-slate-500">kg CO2e</span>`;
+            document.getElementById('statEnergy').innerHTML = `${chargesEquivalent} <span class="text-xs font-normal text-slate-500">Kali</span>`;
+
+            const periodText = days === 30 ? '30 Hari' : (days === 180 ? '1 Semester' : '1 Tahun');
+            document.getElementById('periodBadge').innerText = periodText;
+
+            document.getElementById('certStudentName').innerText = `${name} (Kelas ${sClass})`;
+            document.getElementById('certSummary').innerText = `"Telah menghemat estimasi emisi sebesar ${totalCarbonKg} kg CO2e dan berkomitmen mewujudkan Green Campus MTs Muhammadiyah Batang."`;
+
+            const reflection = document.getElementById('reflectionText');
+            if (totalCarbonKg > 10) {
+                reflection.innerHTML = `Jejak karbon cukup tinggi (<strong>${totalCarbonKg} kg CO2e</strong>). Mari cegah sikap berlebihan (<em>Israf</em>) dengan memilah data dan mengurangi plastik!`;
+            } else {
+                reflection.innerHTML = `Subhanallah! Konsistensi Anda menjaga konsumsi plastik dan merapikan penyimpanan digital mendukung <strong>Tawazun (keseimbangan)</strong> ekosistem MTs Muhammadiyah Batang.`;
+            }
+        }
+
+        function updateSimulation() {
+            const students = parseInt(document.getElementById('simStudents').value);
+            const emails = parseInt(document.getElementById('simEmails').value);
+
+            document.getElementById('simStudentsVal').innerText = `${students} Siswa`;
+            document.getElementById('simEmailsVal').innerText = `${emails} Email`;
+
+            const totalEmails = students * emails;
+            const storageGB = (totalEmails * 0.75 / 1000).toFixed(2);
+            const carbonSavedKg = Math.round(totalEmails * 0.004);
+
+            document.getElementById('simTotalFiles').innerText = `${totalEmails.toLocaleString('id-ID')} Email`;
+            document.getElementById('simStorage').innerText = `${storageGB} GB`;
+            document.getElementById('simCarbonSaved').innerText = `${carbonSavedKg} kg CO2e`;
+
+            const percentage = Math.min(100, Math.round((totalEmails / 50000) * 100));
+            document.getElementById('simProgressBar').style.width = `${percentage}%`;
+        }
+
+        function submitQuiz() {
+            const q1 = document.querySelector('input[name="q1"]:checked')?.value || '';
+            const q2 = document.querySelector('input[name="q2"]:checked')?.value || '';
+            const score = (q1 === 'b' ? 50 : 0) + (q2 === 'a' ? 50 : 0);
+            const resultBox = document.getElementById('quizResult');
+            resultBox.classList.remove('hidden','bg-emerald-100','bg-amber-100','text-emerald-800','text-amber-800');
+            resultBox.classList.add(score===100?'bg-emerald-100':'bg-amber-100',score===100?'text-emerald-800':'text-amber-800');
+            resultBox.innerHTML = score===100 ? '<i class="fa-solid fa-circle-check text-emerald-600 mr-1"></i> Luar biasa! Skor '+score+'/100.' : '<i class="fa-solid fa-circle-info text-amber-600 mr-1"></i> Skor '+score+'/100. Pelajari kembali energi server dan prinsip tidak Israf/Tabdzir.';
+            const payload={answers:{q1,q2},score,maxScore:100};
+            ecoServerCall('apiSaveRecord',[ecoToken,'Kuis',payload],res=>ecoShowServerStatus('Hasil kuis berhasil disimpan di server.'),err=>ecoShowServerStatus('Gagal menyimpan kuis: '+ecoError(err),true));
+        }
+
+        function generateCertificatePDF() {
+            const element = document.getElementById('certificateTemplate');
+            const studentName = document.getElementById('studentName').value || "Siswa";
+            const opt = {
+                margin:       0.5,
+                filename:     `Sertifikat_EcoByte_${studentName}.pdf`,
+                image:        { type: 'jpeg', quality: 0.98 },
+                html2canvas:  { scale: 2 },
+                jsPDF:        { unit: 'in', format: 'letter', orientation: 'landscape' }
+            };
+            html2pdf().set(opt).from(element).save();
+        }
+
+        async function askGeminiLive() {
+            const aiBox=document.getElementById('aiSuggestion');
+            aiBox.innerHTML='<p class="italic text-amber-300"><i class="fa-solid fa-spinner fa-spin mr-1"></i> AI sedang menganalisis audit melalui server…</p>';
+            const payload=currentAuditSnapshot();
+            ecoServerCall('apiGenerateAdvice',[ecoToken,{plasticPerDay:Number(document.getElementById('plasticInput').value||0),digitalItems:Number(document.getElementById('digitalInput').value||0),days:Number(document.getElementById('daysInput').value||30),totalPlastic:payload.totalPlastic,carbon:payload.carbon}],res=>{
+                const safe=ecoEscape(res && res.advice ? res.advice : 'AI belum menghasilkan rekomendasi.');
+                aiBox.innerHTML='<p class="text-emerald-200 font-medium"><strong>Rekomendasi AI:</strong> '+safe+'</p><p class="text-[10px] text-slate-400 mt-2">Dihasilkan melalui backend server. Verifikasi saran sebelum dijadikan kebijakan.</p>';
+                ecoShowServerStatus('Rekomendasi AI berhasil dibuat.');
+            },err=>{aiBox.innerHTML='<p class="text-amber-200">AI belum dapat dihubungi: '+ecoEscape(ecoError(err))+'</p><p class="text-xs text-slate-400">Pastikan GEMINI_API_KEY telah disetel di Apps Script Project Settings.</p>';});
+        }
+
+        function submitLKPD() {
+            const payload={q1:(document.getElementById('lkpdQ1')?.value||'').trim(),q2:(document.getElementById('lkpdQ2')?.value||'').trim()};
+            if(!payload.q1 && !payload.q2){ecoShowServerStatus('Isi jawaban LKPD terlebih dahulu.',true);return;}
+            document.getElementById('lkpdFeedback').classList.remove('hidden');
+            ecoServerCall('apiSaveRecord',[ecoToken,'LKPD',payload],res=>ecoShowServerStatus('Jawaban LKPD berhasil disimpan ke Google Sheets.'),err=>ecoShowServerStatus('Gagal menyimpan LKPD: '+ecoError(err),true));
+        }
+
+        window.onload = function() {
+            calculateImpact();
+            updateSimulation();
+        };
+    
+        // ===== ECO-BYTE Google Apps Script backend client =====
+        let ecoToken = sessionStorage.getItem('ecobyte_session_token') || '';
+        let ecoRole = sessionStorage.getItem('ecobyte_session_role') || '';
+        let ecoUser = JSON.parse(sessionStorage.getItem('ecobyte_session_user') || 'null');
+        function ecoError(e){return (e && e.message) ? e.message : String(e||'Kesalahan tidak diketahui');}
+        function ecoEscape(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+        function ecoShowServerStatus(msg,isError=false){const el=document.getElementById('serverSaveStatus');if(el){el.textContent=msg;el.style.color=isError?'#d97706':'';}}
+        function ecoServerCall(method,args,onSuccess,onFailure){
+          if(!ecoToken && method!=='apiLogin'){ecoShowServerStatus('Silakan masuk terlebih dahulu.',true);return;}
+          if(!window.google || !google.script || !google.script.run){ecoShowServerStatus('Aplikasi belum dibuka dari URL Google Apps Script. Buka URL Web App hasil deployment.',true);if(onFailure)onFailure(new Error('google.script.run tidak tersedia'));return;}
+          let runner=google.script.run.withSuccessHandler(onSuccess||function(){}).withFailureHandler(onFailure||function(e){ecoShowServerStatus(ecoError(e),true)});
+          runner[method].apply(runner,args||[]);
+        }
+        function ecoLogin(){
+          const pin=document.getElementById('ecoLoginPin').value.trim();const name=document.getElementById('ecoLoginName').value.trim();const sClass=document.getElementById('ecoLoginClass').value.trim();
+          const status=document.getElementById('ecoAuthStatus');const btn=document.getElementById('ecoLoginBtn');
+          if(!pin){status.textContent='Masukkan kode akses.';return;} btn.disabled=true;status.textContent='Memeriksa akses…';
+          ecoServerCall('apiLogin',[pin,name,sClass],res=>{
+            btn.disabled=false;if(!res||!res.token){status.textContent='Login gagal.';return;}
+            ecoToken=res.token;ecoRole=res.role;ecoUser=res.user;sessionStorage.setItem('ecobyte_session_token',ecoToken);sessionStorage.setItem('ecobyte_session_role',ecoRole);sessionStorage.setItem('ecobyte_session_user',JSON.stringify(ecoUser));
+            document.getElementById('ecoAuthOverlay').style.display='none';document.getElementById('ecoSessionLabel').textContent=(ecoUser.name||'Pengguna')+' • '+(ecoRole==='admin'?'GURU/ADMIN':'SISWA');
+            if(ecoUser.name && ecoRole!=='admin')document.getElementById('studentName').value=ecoUser.name;
+            if(ecoUser.sClass && ecoRole!=='admin')document.getElementById('studentClass').value=ecoUser.sClass;
+            calculateImpact();ecoShowServerStatus('Terhubung. Data akan tersimpan saat formulir dikirim.');
+            if(ecoRole==='admin'){document.getElementById('ecoAdminPanel')?.classList.remove('hidden');loadServerRecords();}
+          },err=>{btn.disabled=false;status.textContent=ecoError(err);});
+        }
+        function ecoLogout(){sessionStorage.removeItem('ecobyte_session_token');sessionStorage.removeItem('ecobyte_session_role');sessionStorage.removeItem('ecobyte_session_user');ecoToken='';ecoRole='';ecoUser=null;document.getElementById('ecoAuthOverlay').style.display='flex';document.getElementById('ecoLoginPin').value='';}
+        function currentAuditSnapshot(){const name=(document.getElementById('studentName')?.value||ecoUser?.name||'Siswa').trim();const sClass=(document.getElementById('studentClass')?.value||ecoUser?.sClass||'-').trim();const plasticPerDay=Math.max(0,Number(document.getElementById('plasticInput')?.value||0));const digitalItems=Math.max(0,Number(document.getElementById('digitalInput')?.value||0));const days=Number(document.getElementById('daysInput')?.value||30);const totalPlastic=plasticPerDay*days;const carbon=Number(((digitalItems*0.004)*(days/365)+totalPlastic*0.082).toFixed(2));return {name,sClass,plasticPerDay,digitalItems,days,totalPlastic,carbon};}
+        function saveAuditRecord(){const item=currentAuditSnapshot();ecoServerCall('apiSaveRecord',[ecoToken,'Audit',item],res=>{ecoShowServerStatus('Audit tersimpan di server • '+new Date().toLocaleTimeString('id-ID'));const btn=document.querySelector('#premiumBar .premium-action');if(btn){const old=btn.innerHTML;btn.innerHTML='<i class="fa-solid fa-check"></i> Tersimpan';setTimeout(()=>btn.innerHTML=old,1400);}if(ecoRole==='admin')loadServerRecords();},err=>ecoShowServerStatus('Audit gagal disimpan: '+ecoError(err),true));}
+        function exportAuditCSV(){if(ecoRole!=='admin'){ecoShowServerStatus('Ekspor seluruh data hanya tersedia untuk guru/admin.',true);return;}ecoServerCall('apiGetRecords',[ecoToken],res=>{const rows=[['Waktu','Jenis','Nama','Kelas','Data JSON']];(res.records||[]).forEach(r=>rows.push([r.timestamp,r.type,r.name,r.sClass,JSON.stringify(r.payload)]));const csv=rows.map(r=>r.map(v=>'"'+String(v??'').replace(/"/g,'""')+'"').join(',')).join('\r\n');const blob=new Blob(['\ufeff'+csv],{type:'text/csv;charset=utf-8;'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download='EcoByte_Server_Records.csv';a.click();URL.revokeObjectURL(url);},err=>ecoShowServerStatus('Ekspor gagal: '+ecoError(err),true));}
+        function loadServerRecords(){if(ecoRole!=='admin')return;ecoServerCall('apiGetRecords',[ecoToken],res=>{const records=res.records||[];document.getElementById('ecoAdminSummary').textContent='Total kiriman: '+records.length+' • Audit: '+records.filter(x=>x.type==='Audit').length+' • LKPD: '+records.filter(x=>x.type==='LKPD').length+' • Kuis: '+records.filter(x=>x.type==='Kuis').length+' • AI: '+records.filter(x=>x.type==='AI').length;const rows=records.slice(0,100).map(r=>'<tr><td>'+ecoEscape(r.timestamp)+'</td><td>'+ecoEscape(r.type)+'</td><td>'+ecoEscape(r.name)+'</td><td>'+ecoEscape(r.sClass)+'</td><td style="max-width:420px;white-space:normal">'+ecoEscape(JSON.stringify(r.payload))+'</td></tr>').join('');document.getElementById('ecoAdminTableWrap').innerHTML='<table id="historyTable"><thead><tr><th>Waktu</th><th>Jenis</th><th>Nama</th><th>Kelas</th><th>Isi</th></tr></thead><tbody>'+rows+'</tbody></table>';},err=>ecoShowServerStatus('Gagal memuat rekap: '+ecoError(err),true));}
+        window.addEventListener('load',()=>{if(ecoToken){document.getElementById('ecoAuthOverlay').style.display='none';document.getElementById('ecoSessionLabel').textContent=(ecoUser?.name||'Pengguna')+' • '+(ecoRole==='admin'?'GURU/ADMIN':'SISWA');if(ecoRole!=='admin'&&ecoUser){document.getElementById('studentName').value=ecoUser.name||'';document.getElementById('studentClass').value=ecoUser.sClass||'';}ecoServerCall('apiHealth',[ecoToken],res=>{ecoShowServerStatus('Sesi aktif • server terhubung.');if(ecoRole==='admin'){document.getElementById('ecoAdminPanel')?.classList.remove('hidden');loadServerRecords();}},err=>{ecoLogout();document.getElementById('ecoAuthStatus').textContent='Sesi berakhir. Silakan masuk kembali.';});}});
+
+</script>
+</body>
+</html>

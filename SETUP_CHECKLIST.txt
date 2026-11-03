@@ -1,0 +1,20 @@
+CHECKLIST DEPLOYMENT ECO-BYTE
+[ ] Buat proyek di script.google.com
+[ ] Salin Code.gs
+[ ] Buat HTML bernama Index dan salin Index.html
+[ ] Aktifkan manifest dan salin appsscript.json
+[ ] Jalankan setupEcoByte() dan otorisasi
+[ ] Catat URL spreadsheet dan PIN dari Execution log
+[ ] Tambahkan GEMINI_API_KEY di Script Properties
+[ ] Deploy sebagai Web app, Execute as Me
+[ ] Batasi akses sesuai kebutuhan sekolah
+[ ] Tes login siswa, simpan audit, LKPD, kuis, dan AI
+[ ] Tes login admin dan ekspor CSV
+[ ] Simpan ADMIN_PIN di tempat aman
+
+GOOGLE SITES PREMIUM
+- Deploy Apps Script sebagai Web app.
+- Embed URL: https://script.google.com/macros/s/ID_DEPLOYMENT/exec?page=home
+- Dashboard langsung: https://script.google.com/macros/s/ID_DEPLOYMENT/exec
+- Google Sites: Insert > Embed > By URL > paste URL halaman depan > Insert > Publish.
+- Ganti ID_DEPLOYMENT dengan URL deployment milik Anda; jangan gunakan teks contoh.
