@@ -15,11 +15,10 @@
 <style>
     .gradient-bg { background: linear-gradient(135deg, #064e3b 0%, #047857 50%, #065f46 100%); }
     .luxury-gold-gradient { background: linear-gradient(135deg, #bf953f 0%, #fcf6ba 25%, #b38728 50%, #fbf5b7 75%, #aa771c 100%); }
-    .card-shadow { box-shadow: 0 14px 36px rgba(8,45,34,0.08), 0 2px 6px rgba(8,45,34,0.04); }
+    .card-shadow { box-shadow: 0 10px 25px -5px rgba(6, 78, 59, 0.08), 0 8px 10px -6px rgba(6, 78, 59, 0.04); }
     .no-scrollbar::-webkit-scrollbar { display: none; }
     .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
     
-    /* CETAK SERTIFIKAT FOKUS SATU HALAMAN LANDSCAPE */
     @media print {
         body * { visibility: hidden !important; }
         #certificatePrintArea, #certificatePrintArea * { visibility: visible !important; }
@@ -32,7 +31,7 @@
             height: 100% !important;
             max-height: 100vh !important;
             margin: 0 !important;
-            padding: 25px !important;
+            padding: 30px !important;
             background: #fffdf9 !important;
             z-index: 999999 !important;
             display: flex !important;
@@ -42,7 +41,6 @@
             border: 12px solid #064e3b !important;
             box-shadow: none !important;
             page-break-inside: avoid !important;
-            page-break-after: avoid !important;
         }
     }
 </style>
@@ -50,13 +48,13 @@
 
 <!-- Header & Navigasi -->
 <header class="gradient-bg text-white shadow-xl sticky top-0 z-50">
-    <div class="max-w-6xl mx-auto px-4 py-3.5 flex flex-wrap justify-between items-center">
+    <div class="max-w-6xl mx-auto px-4 py-3.5 flex flex-wrap justify-between items-center gap-2">
         <div class="flex items-center space-x-3">
             <div class="bg-white/10 p-2.5 rounded-xl backdrop-blur-md border border-white/20">
-                <i class="fa-solid fa-earth-asia text-emerald-300 text-2xl"></i>
+                <i class="fa-solid fa-earth-asia text-emerald-300 text-xl md:text-2xl"></i>
             </div>
             <div>
-                <h1 class="font-extrabold text-base md:text-xl tracking-tight leading-none flex items-center gap-2">
+                <h1 class="font-extrabold text-sm md:text-lg tracking-tight leading-none flex items-center gap-2">
                     ECO-BYTE ULTIMATE
                     <span class="text-emerald-200 text-[10px] font-bold px-2 py-0.5 bg-emerald-900/90 rounded-full border border-emerald-400/40">
                         MTs M Batang
@@ -66,18 +64,18 @@
             </div>
         </div>
         
-        <div class="flex items-center space-x-2 mt-2 sm:mt-0">
+        <div class="flex items-center space-x-2">
             <button onclick="toggleDarkMode()" class="bg-emerald-900/60 hover:bg-emerald-800/80 p-2.5 rounded-xl border border-emerald-500/30 text-amber-300 transition" title="Ganti Mode">
                 <i id="themeIcon" class="fa-solid fa-moon"></i>
             </button>
             <div class="bg-emerald-900/60 px-3 py-1.5 rounded-xl border border-emerald-500/30 text-xs font-semibold flex items-center space-x-1.5 text-amber-300">
                 <i class="fa-solid fa-gem"></i>
-                <span>Sistem Siap</span>
+                <span>Gemini 2026</span>
             </div>
         </div>
     </div>
 
-    <nav class="max-w-6xl mx-auto px-4 bg-emerald-950/60 border-t border-white/10 flex overflow-x-auto text-xs md:text-sm no-scrollbar">
+    <nav class="max-w-6xl mx-auto px-4 bg-emerald-950/80 border-t border-white/10 flex overflow-x-auto text-xs md:text-sm no-scrollbar">
         <button onclick="switchTab('kalkulator')" id="tab-kalkulator" class="px-4 py-3 font-semibold whitespace-nowrap text-white border-b-2 border-emerald-400 transition flex items-center space-x-1.5">
             <i class="fa-solid fa-calculator"></i><span>1. Kalkulator & Audit</span>
         </button>
@@ -113,7 +111,7 @@
             </div>
         </div>
         <div class="flex items-center space-x-2">
-            <button onclick="saveAuditRecord()" class="bg-emerald-600 hover:bg-emerald-500 text-white font-bold px-3.5 py-2 rounded-xl text-xs transition flex items-center space-x-1.5">
+            <button onclick="saveAuditRecord()" class="bg-emerald-600 hover:bg-emerald-500 text-white font-bold px-3.5 py-2 rounded-xl text-xs transition flex items-center space-x-1.5 shadow">
                 <i class="fa-solid fa-cloud-arrow-up"></i><span>Kirim Data Sekarang</span>
             </button>
         </div>
@@ -122,8 +120,8 @@
     <!-- TAB 1: KALKULATOR -->
     <div id="view-kalkulator" class="grid grid-cols-1 lg:grid-cols-12 gap-6">
         <div class="lg:col-span-7 space-y-6">
-            <div class="bg-white dark:bg-slate-900 p-6 rounded-3xl card-shadow border border-slate-100 dark:border-slate-800">
-                <div class="flex items-center space-x-3 mb-4 pb-3 border-b border-slate-100 dark:border-slate-800">
+            <div class="bg-white dark:bg-slate-900 p-6 rounded-3xl card-shadow border border-slate-100 dark:border-slate-800 space-y-4">
+                <div class="flex items-center space-x-3 pb-3 border-b border-slate-100 dark:border-slate-800">
                     <div class="bg-emerald-100 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-300 p-2.5 rounded-xl">
                         <i class="fa-solid fa-calculator text-lg"></i>
                     </div>
@@ -133,14 +131,14 @@
                     </div>
                 </div>
 
-                <form id="auditForm" onsubmit="event.preventDefault(); calculateImpact(); saveAuditRecord();" class="space-y-4">
+                <form id="auditForm" onsubmit="event.preventDefault(); calculateImpact(); saveAuditRecord();" class="space-y-4 text-xs sm:text-sm">
                     <div>
-                        <label class="block text-xs font-bold uppercase tracking-wider mb-1 text-slate-700 dark:text-slate-300">
+                        <label class="block font-bold uppercase tracking-wider mb-1 text-slate-700 dark:text-slate-300">
                             <i class="fa-solid fa-user-graduate text-emerald-600 mr-1"></i> Nama Siswa & Pilihan Kelas
                         </label>
                         <div class="grid grid-cols-3 gap-2">
-                            <input type="text" id="studentName" value="Adib" placeholder="Nama Lengkap" class="col-span-2 px-3.5 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-sm font-medium outline-none focus:ring-2 focus:ring-emerald-500">
-                            <select id="studentClass" class="col-span-1 px-3.5 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-sm font-medium outline-none focus:ring-2 focus:ring-emerald-500">
+                            <input type="text" id="studentName" value="Adib" placeholder="Nama Lengkap" class="col-span-2 px-3 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 font-medium outline-none focus:ring-2 focus:ring-emerald-500">
+                            <select id="studentClass" class="col-span-1 px-3 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 font-medium outline-none focus:ring-2 focus:ring-emerald-500">
                                 <option value="7A">7A</option>
                                 <option value="7B">7B</option>
                                 <option value="8A" selected>8A</option>
@@ -152,31 +150,31 @@
                     </div>
 
                     <div>
-                        <label class="block text-xs font-bold uppercase tracking-wider mb-1 text-slate-700 dark:text-slate-300">
+                        <label class="block font-bold uppercase tracking-wider mb-1 text-slate-700 dark:text-slate-300">
                             <i class="fa-solid fa-bottle-water text-emerald-600 mr-1"></i> 1. Botol Plastik Kantin / Hari
                         </label>
-                        <input type="number" id="plasticInput" min="0" value="2" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-sm font-medium outline-none focus:ring-2 focus:ring-emerald-500">
+                        <input type="number" id="plasticInput" min="0" value="2" class="w-full px-3 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 font-medium outline-none focus:ring-2 focus:ring-emerald-500">
                     </div>
 
                     <div>
-                        <label class="block text-xs font-bold uppercase tracking-wider mb-1 text-slate-700 dark:text-slate-300">
+                        <label class="block font-bold uppercase tracking-wider mb-1 text-slate-700 dark:text-slate-300">
                             <i class="fa-solid fa-box-archive text-emerald-600 mr-1"></i> 2. File / Email Sampah di Cloud (@madrasah)
                         </label>
-                        <input type="number" id="digitalInput" min="0" value="350" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-sm font-medium outline-none focus:ring-2 focus:ring-emerald-500">
+                        <input type="number" id="digitalInput" min="0" value="350" class="w-full px-3 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 font-medium outline-none focus:ring-2 focus:ring-emerald-500">
                     </div>
 
                     <div>
-                        <label class="block text-xs font-bold uppercase tracking-wider mb-1 text-slate-700 dark:text-slate-300">
+                        <label class="block font-bold uppercase tracking-wider mb-1 text-slate-700 dark:text-slate-300">
                             <i class="fa-solid fa-calendar-days text-emerald-600 mr-1"></i> 3. Durasi Audit
                         </label>
-                        <select id="daysInput" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-sm font-medium outline-none focus:ring-2 focus:ring-emerald-500">
+                        <select id="daysInput" class="w-full px-3 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 font-medium outline-none focus:ring-2 focus:ring-emerald-500">
                             <option value="30">1 Bulan (30 Hari)</option>
                             <option value="180">1 Semester (6 Bulan)</option>
                             <option value="365">1 Tahun Ajaran</option>
                         </select>
                     </div>
 
-                    <button type="submit" class="w-full gradient-bg hover:opacity-95 text-white font-extrabold py-3.5 px-4 rounded-xl shadow-lg transition text-sm flex items-center justify-center space-x-2">
+                    <button type="submit" class="w-full gradient-bg hover:opacity-95 text-white font-extrabold py-3.5 px-4 rounded-xl shadow-lg transition flex items-center justify-center space-x-2">
                         <i class="fa-solid fa-cloud-arrow-up"></i>
                         <span>Hitung & Sinkronkan ke Database</span>
                     </button>
@@ -382,7 +380,7 @@
         </div>
     </div>
 
-    <!-- TAB 5: SERTIFIKAT MEWAH & FOKUS (DIJAMIN 1 HALAMAN LANDSCAPE) -->
+    <!-- TAB 5: SERTIFIKAT MEWAH & FOKUS -->
     <div id="view-sertifikat" class="hidden space-y-6">
         <div class="bg-white dark:bg-slate-900 p-6 sm:p-8 rounded-3xl card-shadow border border-slate-100 dark:border-slate-800 space-y-6">
             <div class="flex flex-wrap items-center justify-between pb-4 border-b border-slate-100 dark:border-slate-800 gap-3">
@@ -395,9 +393,8 @@
                 </button>
             </div>
 
-            <!-- AREA CETAK SERTIFIKAT FOKUS 1 HALAMAN PAS -->
+            <!-- AREA CETAK SERTIFIKAT -->
             <div id="certificatePrintArea" class="relative p-6 sm:p-10 bg-[#fffdf9] text-slate-900 rounded-3xl border-[10px] border-[#064e3b] shadow-2xl space-y-4 text-center overflow-hidden my-4 mx-auto max-w-4xl" style="aspect-ratio: 1.414 / 1;">
-                <!-- Ornamen Klasik Sudut -->
                 <div class="absolute top-2 left-2 w-8 h-8 border-t-2 border-l-2 border-amber-600 pointer-events-none"></div>
                 <div class="absolute top-2 right-2 w-8 h-8 border-t-2 border-r-2 border-amber-600 pointer-events-none"></div>
                 <div class="absolute bottom-2 left-2 w-8 h-8 border-b-2 border-l-2 border-amber-600 pointer-events-none"></div>
