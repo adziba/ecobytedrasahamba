@@ -19,25 +19,30 @@
     .no-scrollbar::-webkit-scrollbar { display: none; }
     .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
     
-    /* CETAK SERTIFIKAT FOKUS & MEWAH */
+    /* CETAK SERTIFIKAT FOKUS SATU HALAMAN LANDSCAPE */
     @media print {
         body * { visibility: hidden !important; }
         #certificatePrintArea, #certificatePrintArea * { visibility: visible !important; }
+        body, html { margin: 0 !important; padding: 0 !important; background: #fffdf9 !important; }
         #certificatePrintArea {
-            position: fixed !important;
-            inset: 0 !important;
-            width: 100vw !important;
-            height: 100vh !important;
+            position: absolute !important;
+            left: 0 !important;
+            top: 0 !important;
+            width: 100% !important;
+            height: 100% !important;
+            max-height: 100vh !important;
             margin: 0 !important;
-            padding: 40px !important;
+            padding: 25px !important;
             background: #fffdf9 !important;
             z-index: 999999 !important;
             display: flex !important;
             flex-direction: column !important;
             justify-content: center !important;
             align-items: center !important;
-            border: 16px solid #064e3b !important;
+            border: 12px solid #064e3b !important;
             box-shadow: none !important;
+            page-break-inside: avoid !important;
+            page-break-after: avoid !important;
         }
     }
 </style>
@@ -67,7 +72,7 @@
             </button>
             <div class="bg-emerald-900/60 px-3 py-1.5 rounded-xl border border-emerald-500/30 text-xs font-semibold flex items-center space-x-1.5 text-amber-300">
                 <i class="fa-solid fa-gem"></i>
-                <span id="ecoSessionLabel">Sistem Siap</span>
+                <span>Sistem Siap</span>
             </div>
         </div>
     </div>
@@ -280,7 +285,7 @@
         </div>
     </div>
 
-    <!-- TAB 3: LKPD INTERAKTIF (DIPERLUAS) -->
+    <!-- TAB 3: LKPD INTERAKTIF -->
     <div id="view-worksheet" class="hidden space-y-6">
         <div class="bg-white dark:bg-slate-900 p-6 sm:p-8 rounded-3xl card-shadow border border-slate-100 dark:border-slate-800 space-y-6">
             <div class="flex items-center space-x-3 pb-4 border-b border-slate-100 dark:border-slate-800">
@@ -321,7 +326,7 @@
         </div>
     </div>
 
-    <!-- TAB 4: KUIS EKOTEOLOGI (DIPERLUAS & DIPERBAIKI) -->
+    <!-- TAB 4: KUIS EKOTEOLOGI -->
     <div id="view-kuis" class="hidden space-y-6">
         <div class="bg-white dark:bg-slate-900 p-6 sm:p-8 rounded-3xl card-shadow border border-slate-100 dark:border-slate-800 space-y-6">
             <div class="flex items-center space-x-3 pb-4 border-b border-slate-100 dark:border-slate-800">
@@ -333,7 +338,6 @@
             </div>
 
             <div class="space-y-6 text-xs sm:text-sm">
-                <!-- Soal 1 -->
                 <div class="p-4 bg-slate-50 dark:bg-slate-800/60 rounded-2xl border border-slate-200 dark:border-slate-700 space-y-2">
                     <p class="font-bold text-slate-900 dark:text-slate-100">1. Mengapa pembersihan file email sampah di cloud berdampak pada pengurangan emisi karbon?</p>
                     <div class="space-y-1.5 pl-2">
@@ -343,7 +347,6 @@
                     </div>
                 </div>
 
-                <!-- Soal 2 -->
                 <div class="p-4 bg-slate-50 dark:bg-slate-800/60 rounded-2xl border border-slate-200 dark:border-slate-700 space-y-2">
                     <p class="font-bold text-slate-900 dark:text-slate-100">2. Prinsip dalam Islam yang melarang pemborosan energi dan tempat penyimpanan data adalah...</p>
                     <div class="space-y-1.5 pl-2">
@@ -353,7 +356,6 @@
                     </div>
                 </div>
 
-                <!-- Soal 3 -->
                 <div class="p-4 bg-slate-50 dark:bg-slate-800/60 rounded-2xl border border-slate-200 dark:border-slate-700 space-y-2">
                     <p class="font-bold text-slate-900 dark:text-slate-100">3. Peran manusia sebagai pengelola bumi dalam konsep ekoteologi dikenal sebagai...</p>
                     <div class="space-y-1.5 pl-2">
@@ -363,7 +365,6 @@
                     </div>
                 </div>
 
-                <!-- Soal 4 -->
                 <div class="p-4 bg-slate-50 dark:bg-slate-800/60 rounded-2xl border border-slate-200 dark:border-slate-700 space-y-2">
                     <p class="font-bold text-slate-900 dark:text-slate-100">4. Langkah komputasional apa yang paling efektif dalam menekan jejak karbon digital?</p>
                     <div class="space-y-1.5 pl-2">
@@ -381,7 +382,7 @@
         </div>
     </div>
 
-    <!-- TAB 5: SERTIFIKAT MEWAH & FOKUS (DI PERBAIKI) -->
+    <!-- TAB 5: SERTIFIKAT MEWAH & FOKUS (DIJAMIN 1 HALAMAN LANDSCAPE) -->
     <div id="view-sertifikat" class="hidden space-y-6">
         <div class="bg-white dark:bg-slate-900 p-6 sm:p-8 rounded-3xl card-shadow border border-slate-100 dark:border-slate-800 space-y-6">
             <div class="flex flex-wrap items-center justify-between pb-4 border-b border-slate-100 dark:border-slate-800 gap-3">
@@ -394,61 +395,61 @@
                 </button>
             </div>
 
-            <!-- AREA CETAK SERTIFIKAT FOKUS & MEWAH -->
-            <div id="certificatePrintArea" class="relative p-8 md:p-12 bg-[#fffdf9] text-slate-900 rounded-3xl border-[12px] border-[#064e3b] shadow-2xl space-y-6 text-center overflow-hidden my-4" style="min-height: 520px;">
+            <!-- AREA CETAK SERTIFIKAT FOKUS 1 HALAMAN PAS -->
+            <div id="certificatePrintArea" class="relative p-6 sm:p-10 bg-[#fffdf9] text-slate-900 rounded-3xl border-[10px] border-[#064e3b] shadow-2xl space-y-4 text-center overflow-hidden my-4 mx-auto max-w-4xl" style="aspect-ratio: 1.414 / 1;">
                 <!-- Ornamen Klasik Sudut -->
-                <div class="absolute top-3 left-3 w-12 h-12 border-t-2 border-l-2 border-amber-600 pointer-events-none"></div>
-                <div class="absolute top-3 right-3 w-12 h-12 border-t-2 border-r-2 border-amber-600 pointer-events-none"></div>
-                <div class="absolute bottom-3 left-3 w-12 h-12 border-b-2 border-l-2 border-amber-600 pointer-events-none"></div>
-                <div class="absolute bottom-3 right-3 w-12 h-12 border-b-2 border-r-2 border-amber-600 pointer-events-none"></div>
+                <div class="absolute top-2 left-2 w-8 h-8 border-t-2 border-l-2 border-amber-600 pointer-events-none"></div>
+                <div class="absolute top-2 right-2 w-8 h-8 border-t-2 border-r-2 border-amber-600 pointer-events-none"></div>
+                <div class="absolute bottom-2 left-2 w-8 h-8 border-b-2 border-l-2 border-amber-600 pointer-events-none"></div>
+                <div class="absolute bottom-2 right-2 w-8 h-8 border-b-2 border-r-2 border-amber-600 pointer-events-none"></div>
 
-                <div class="flex justify-between items-center border-b border-amber-600/30 pb-3">
+                <div class="flex justify-between items-center border-b border-amber-600/30 pb-2">
                     <div class="text-left">
-                        <span class="font-extrabold text-[10px] text-emerald-900 tracking-widest uppercase">MTs Muhammadiyah Batang</span>
-                        <p class="text-[8px] text-slate-600">Majelis Dikdasmen Kab. Batang</p>
+                        <span class="font-extrabold text-[9px] text-emerald-900 tracking-widest uppercase">MTs Muhammadiyah Batang</span>
+                        <p class="text-[7px] text-slate-600">Majelis Dikdasmen Kab. Batang</p>
                     </div>
-                    <div class="w-10 h-10 rounded-full bg-emerald-900 flex items-center justify-center text-amber-400 font-black text-sm shadow">
+                    <div class="w-8 h-8 rounded-full bg-emerald-900 flex items-center justify-center text-amber-400 font-black text-xs shadow">
                         MB
                     </div>
                     <div class="text-right">
-                        <span class="font-extrabold text-[10px] text-emerald-900 tracking-widest uppercase">Gemini Academy 2026</span>
-                        <p class="text-[8px] text-slate-600">Green IT & Ekoteologi</p>
+                        <span class="font-extrabold text-[9px] text-emerald-900 tracking-widest uppercase">Gemini Academy 2026</span>
+                        <p class="text-[7px] text-slate-600">Green IT & Ekoteologi</p>
                     </div>
                 </div>
 
-                <div class="space-y-2 py-1">
-                    <span class="inline-block px-4 py-1 bg-amber-100 text-amber-900 text-[9px] font-black tracking-widest rounded-full uppercase border border-amber-400">
+                <div class="space-y-1">
+                    <span class="inline-block px-3 py-0.5 bg-amber-100 text-amber-900 text-[8px] font-black tracking-widest rounded-full uppercase border border-amber-400">
                         Piagam Penghargaan Kehormatan Utama
                     </span>
-                    <h2 class="text-2xl md:text-3xl font-serif font-black text-[#064e3b] tracking-tight uppercase">Sertifikat Duta Ekoteologi Digital</h2>
-                    <p class="text-xs text-slate-600 italic">Diberikan secara resmi dan membanggakan kepada:</p>
+                    <h2 class="text-xl sm:text-2xl font-serif font-black text-[#064e3b] tracking-tight uppercase">Sertifikat Duta Ekoteologi Digital</h2>
+                    <p class="text-[11px] text-slate-600 italic">Diberikan secara resmi dan membanggakan kepada:</p>
                 </div>
 
-                <div class="py-1">
-                    <h3 id="certStudentName" class="text-2xl md:text-3xl font-extrabold text-slate-900 underline decoration-amber-500 decoration-2 underline-offset-8">Adib (Kelas 8A)</h3>
+                <div>
+                    <h3 id="certStudentName" class="text-xl sm:text-2xl font-extrabold text-slate-900 underline decoration-amber-500 decoration-2 underline-offset-4">Adib (Kelas 8A)</h3>
                 </div>
 
-                <div class="max-w-lg mx-auto">
-                    <p id="certSummary" class="text-xs md:text-sm text-slate-700 leading-relaxed font-medium">
+                <div class="max-w-md mx-auto">
+                    <p id="certSummary" class="text-[11px] sm:text-xs text-slate-700 leading-relaxed font-medium">
                         Atas dedikasi gemilang dalam aksi nyata pengurangan sampah plastik kantin dan pembersihan jejak karbon digital (Cloud Storage Optimization) di lingkungan MTs Muhammadiyah Batang. Konsisten mengamalkan nilai-nilai Islam dalam menjaga kelestarian bumi (*Khalifah fil 'Ardh*).
                     </p>
                 </div>
 
-                <div class="pt-4 border-t border-amber-600/30 flex justify-between items-end text-xs">
+                <div class="pt-3 border-t border-amber-600/30 flex justify-between items-end text-[10px]">
                     <div class="text-left space-y-0.5">
-                        <p class="font-bold text-slate-700 text-[11px]">Verifikasi Sistem:</p>
-                        <p class="text-[9px] text-emerald-800 font-mono">Google Sheets Database (Active)</p>
-                        <p class="text-[9px] text-slate-500">ID: ECO-2026/BATANG-01</p>
+                        <p class="font-bold text-slate-700">Verifikasi Sistem:</p>
+                        <p class="text-[8px] text-emerald-800 font-mono">Google Sheets Database (Active)</p>
+                        <p class="text-[8px] text-slate-500">ID: ECO-2026/BATANG-01</p>
                     </div>
                     <div class="text-center">
-                        <div class="w-14 h-14 mx-auto mb-1 flex items-center justify-center border-2 border-dashed border-amber-600 rounded-full text-amber-800 text-[9px] font-black rotate-[-10deg]">
+                        <div class="w-10 h-10 mx-auto mb-0.5 flex items-center justify-center border-2 border-dashed border-amber-600 rounded-full text-amber-800 text-[8px] font-black rotate-[-10deg]">
                             VALID
                         </div>
                     </div>
                     <div class="text-right space-y-0.5">
-                        <p class="font-bold text-slate-800 text-[11px]">Batang, 2026</p>
-                        <div class="h-6"></div>
-                        <p class="font-bold text-[#064e3b] border-t border-slate-400 pt-1 text-[11px]">Tim Pengembang Eco-Byte</p>
+                        <p class="font-bold text-slate-800">Batang, 2026</p>
+                        <div class="h-4"></div>
+                        <p class="font-bold text-[#064e3b] border-t border-slate-400 pt-0.5">Tim Pengembang Eco-Byte</p>
                     </div>
                 </div>
             </div>
@@ -620,7 +621,7 @@
         const element = document.getElementById('certificatePrintArea');
         const studentName = document.getElementById('studentName').value || "Adib";
         const opt = {
-            margin: 0.2,
+            margin: 0.1,
             filename: `Sertifikat_EcoByte_${studentName}.pdf`,
             image: { type: 'jpeg', quality: 0.98 },
             html2canvas: { scale: 2, useCORS: true },
