@@ -7,7 +7,6 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
     
     <script>
         tailwind.config = {
@@ -29,7 +28,12 @@
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
         
-        /* CSS CETAK PDF FULL LANDSCAPE */
+        /* PENGATURAN CETAK / SIMPAN PDF FULL 100% LANDSCAPE TANPA SISA PUTIH */
+        @page {
+            size: A4 landscape;
+            margin: 0;
+        }
+
         @media print {
             header, footer, #premiumBar, button, .nav-tabs, .no-print {
                 display: none !important;
@@ -38,8 +42,9 @@
                 background: #ffffff !important;
                 margin: 0 !important;
                 padding: 0 !important;
-                width: 100% !important;
-                height: 100% !important;
+                width: 100vw !important;
+                height: 100vh !important;
+                overflow: hidden !important;
             }
             main {
                 max-width: none !important;
@@ -49,12 +54,23 @@
             #view-dashboard {
                 display: block !important;
                 padding: 0 !important;
+                margin: 0 !important;
+            }
+            #view-dashboard > div {
+                border: none !important;
+                box-shadow: none !important;
+                padding: 0 !important;
+                margin: 0 !important;
+                background: transparent !important;
             }
             #certificateTemplate {
                 position: fixed !important;
-                inset: 0 !important;
-                width: 100vw !important;
-                height: 100vh !important;
+                left: 0 !important;
+                top: 0 !important;
+                width: 297mm !important;
+                height: 210mm !important;
+                max-width: none !important;
+                max-height: none !important;
                 border: 12px solid #064e3b !important;
                 background: #fffdf9 !important;
                 z-index: 999999 !important;
@@ -63,8 +79,10 @@
                 justify-content: space-between !important;
                 box-shadow: none !important;
                 margin: 0 !important;
-                padding: 30px 40px !important;
+                padding: 15mm 20mm !important;
                 box-sizing: border-box !important;
+                page-break-after: avoid !important;
+                page-break-inside: avoid !important;
             }
         }
     </style>
@@ -127,7 +145,7 @@
             <div style="display:flex;gap:8px;flex-wrap:wrap">
                 <span id="serverSaveStatus" style="font-size:11px;align-self:center;color:#e7e0cb">Google Sheets Terhubung (Live)</span>
                 <button class="bg-amber-500 hover:bg-amber-400 text-slate-900 font-bold px-3 py-1.5 rounded-lg text-xs" type="button" onclick="saveAuditRecord()"><i class="fa-solid fa-cloud-arrow-up"></i> Sinkronisasi DB</button>
-                <button class="bg-white/10 hover:bg-white/20 text-white font-bold px-3 py-1.5 rounded-lg text-xs border border-white/20" type="button" onclick="window.print()"><i class="fa-solid fa-print"></i> Cetak</button>
+                <button class="bg-white/10 hover:bg-white/20 text-white font-bold px-3 py-1.5 rounded-lg text-xs border border-white/20" type="button" onclick="window.print()"><i class="fa-solid fa-print"></i> Cetak / Simpan PDF</button>
             </div>
         </div>
         
@@ -367,9 +385,9 @@
                         <h3 class="font-bold text-lg text-slate-900 dark:text-white">Sertifikat Resmi Duta Ekoteologi</h3>
                         <p class="text-xs text-slate-500 dark:text-slate-400">Piagam Penghargaan Resmi MTs Muhammadiyah Batang • Program Madrasah Hijau</p>
                     </div>
-                    <button onclick="generateCertificatePDF()" class="bg-amber-500 hover:bg-amber-400 text-slate-900 font-extrabold px-6 py-3 rounded-xl text-sm transition flex items-center space-x-2 shadow-lg">
-                        <i class="fa-solid fa-file-pdf"></i>
-                        <span>Unduh Sertifikat PDF (Full Layar)</span>
+                    <button onclick="window.print()" class="bg-amber-500 hover:bg-amber-400 text-slate-900 font-extrabold px-6 py-3 rounded-xl text-sm transition flex items-center space-x-2 shadow-lg">
+                        <i class="fa-solid fa-print"></i>
+                        <span>Cetak / Simpan PDF (Full Layar)</span>
                     </button>
                 </div>
 
@@ -487,7 +505,6 @@
             document.getElementById('statPlastic').innerHTML = `${totalPlastic} <span class="text-xs font-normal text-slate-500">Botol</span>`;
             document.getElementById('statCarbon').innerHTML = `${totalCarbonKg} <span class="text-xs font-normal text-slate-500">kg CO2e</span>`;
             
-            // Perbarui Nama dan Deskripsi pada Sertifikat secara Real-Time
             document.getElementById('certStudentName').innerText = `${name} (Kelas ${sClass})`;
             document.getElementById('certSummary').innerText = `Atas dedikasi luar biasa dalam aksi nyata pengurangan sampah plastik sebanyak ${totalPlastic} botol dan pembersihan jejak karbon digital (${totalCarbonKg} kg CO2e) di lingkungan MTs Muhammadiyah Batang. Konsisten mengamalkan nilai-nilai Islam dalam menjaga kelestarian bumi.`;
         }
@@ -524,19 +541,6 @@
             if(!q1 && !q2) { alert('Isi jawaban LKPD terlebih dahulu.'); return; }
             document.getElementById('lkpdFeedback').classList.remove('hidden');
             saveAuditRecord();
-        }
-
-        function generateCertificatePDF() {
-            const element = document.getElementById('certificateTemplate');
-            const studentName = document.getElementById('studentName').value || "Adib";
-            const opt = {
-                margin: 0,
-                filename: `Sertifikat_Duta_Ekoteologi_${studentName}.pdf`,
-                image: { type: 'jpeg', quality: 0.98 },
-                html2canvas: { scale: 3, useCORS: true, letterRendering: true },
-                jsPDF: { unit: 'mm', format: 'a4', orientation: 'landscape' }
-            };
-            html2pdf().from(element).set(opt).save();
         }
 
         function saveAuditRecord() {
