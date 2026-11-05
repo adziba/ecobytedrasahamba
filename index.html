@@ -28,45 +28,32 @@
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 
+        /* FORMAT CETAK 1 HALAMAN PAS A4 LANDSCAPE */
         @page {
             size: A4 landscape;
-            margin: 10mm;
+            margin: 0;
         }
 
         @media print {
-            header, footer, #premiumBar, button, .nav-tabs, .no-print {
-                display: none !important;
+            body * {
+                visibility: hidden !important;
             }
-            body, html {
-                background: #ffffff !important;
-                margin: 0 !important;
-                padding: 0 !important;
-                width: 100% !important;
-                height: 100% !important;
-            }
-            main {
-                max-width: none !important;
-                padding: 0 !important;
-                margin: 0 !important;
-            }
-            #view-dashboard {
-                display: block !important;
-                padding: 0 !important;
-                margin: 0 !important;
+            #certificateCard, #certificateCard * {
+                visibility: visible !important;
             }
             #certificateCard {
-                position: absolute !important;
-                left: 50% !important;
-                top: 50% !important;
-                transform: translate(-50%, -50%) !important;
-                width: 275mm !important;
-                max-width: none !important;
-                border: 10px solid #064e3b !important;
+                position: fixed !important;
+                left: 0 !important;
+                top: 0 !important;
+                width: 297mm !important;
+                height: 210mm !important;
+                margin: 0 !important;
+                padding: 15mm 20mm !important;
+                border: 12px solid #064e3b !important;
                 background: #fffdf9 !important;
                 box-shadow: none !important;
-                margin: 0 !important;
-                padding: 25px 35px !important;
                 box-sizing: border-box !important;
+                z-index: 999999 !important;
             }
         }
     </style>
@@ -129,7 +116,7 @@
             <div style="display:flex;gap:8px;flex-wrap:wrap">
                 <span id="serverSaveStatus" style="font-size:11px;align-self:center;color:#e7e0cb">Google Sheets Terhubung (Live)</span>
                 <button class="bg-amber-500 hover:bg-amber-400 text-slate-900 font-bold px-3 py-1.5 rounded-lg text-xs" type="button" onclick="saveAuditRecord()"><i class="fa-solid fa-cloud-arrow-up"></i> Sinkronisasi DB</button>
-                <button class="bg-white/10 hover:bg-white/20 text-white font-bold px-3 py-1.5 rounded-lg text-xs border border-white/20" type="button" onclick="window.print()"><i class="fa-solid fa-print"></i> Cetak / Unduh PDF</button>
+                <button class="bg-white/10 hover:bg-white/20 text-white font-bold px-3 py-1.5 rounded-lg text-xs border border-white/20" type="button" onclick="window.print()"><i class="fa-solid fa-print"></i> Cetak / Simpan PDF (1 Halaman)</button>
             </div>
         </div>
         
@@ -371,11 +358,11 @@
                     </div>
                     <button onclick="window.print()" class="bg-amber-500 hover:bg-amber-400 text-slate-900 font-extrabold px-6 py-3 rounded-xl text-sm transition flex items-center space-x-2 shadow-lg">
                         <i class="fa-solid fa-print"></i>
-                        <span>Cetak / Simpan PDF (Full Layar)</span>
+                        <span>Cetak / Simpan PDF (1 Halaman)</span>
                     </button>
                 </div>
 
-                <!-- KARTU SERTIFIKAT UTUH & KOMPAK -->
+                <!-- KARTU SERTIFIKAT UTUH YANG DICETAK SENDIRIAN -->
                 <div id="certificateCard" style="width: 100%; max-width: 950px; aspect-ratio: 1.414 / 1; margin: 0 auto; background: #fffdf9; color: #1e293b; border: 12px solid #064e3b; padding: 25px 35px; border-radius: 16px; box-shadow: 0 20px 40px rgba(0,0,0,0.15); display: flex; flex-direction: column; justify-content: space-between; text-align: center; position: relative; box-sizing: border-box;">
                     <!-- Ornamen Sudut -->
                     <div style="position: absolute; top: 8px; left: 8px; width: 30px; height: 30px; border-top: 3px solid #d97706; border-left: 3px solid #d97706;"></div>
