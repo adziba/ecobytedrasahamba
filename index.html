@@ -62,11 +62,11 @@
                 z-index: 999999 !important;
                 display: flex !important;
                 flex-direction: column !important;
-                justify-content: center !important;
+                justify-content: space-between !important;
                 align-items: center !important;
                 box-shadow: none !important;
                 margin: 0 !important;
-                padding: 40px !important;
+                padding: 30px !important;
                 page-break-after: avoid !important;
                 page-break-inside: avoid !important;
             }
@@ -174,8 +174,8 @@
                                     <i class="fa-solid fa-user-graduate text-emerald-600 dark:text-emerald-400 mr-1"></i> Nama Siswa & Pilihan Kelas
                                 </label>
                                 <div class="grid grid-cols-3 gap-2">
-                                    <input type="text" id="studentName" value="Adib" placeholder="Nama Lengkap" class="col-span-2 px-3 py-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-100 text-sm focus:ring-2 focus:ring-emerald-500 outline-none">
-                                    <select id="studentClass" class="col-span-1 px-3 py-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-100 text-sm focus:ring-2 focus:ring-emerald-500 outline-none">
+                                    <input type="text" id="studentName" value="Adib" placeholder="Nama Lengkap" class="col-span-2 px-3 py-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-100 text-sm focus:ring-2 focus:ring-emerald-500 outline-none" oninput="calculateImpact()">
+                                    <select id="studentClass" class="col-span-1 px-3 py-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-100 text-sm focus:ring-2 focus:ring-emerald-500 outline-none" onchange="calculateImpact()">
                                         <option value="7A">7A</option>
                                         <option value="7B">7B</option>
                                         <option value="8A" selected>8A</option>
@@ -377,56 +377,61 @@
                     </button>
                 </div>
 
-                <!-- PREVIEW SERTIFIKAT MEWAH (LANDSCAPE 16:9 PRO - FULL MTs MUHAMMADIYAH BATANG) -->
-                <div id="certificateTemplate" style="width: 100%; max-width: 900px; aspect-ratio: 1.414 / 1; margin: 0 auto; background: #fffdf9; color: #1e293b; border: 14px solid #064e3b; padding: 40px; border-radius: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.15); display: flex; flex-direction: column; justify-content: space-between; text-align: center; position: relative; overflow: hidden;">
+                <!-- PREVIEW SERTIFIKAT MEWAH (LANDSCAPE PRO - FULL VISIBLE & RESPONSIVE) -->
+                <div id="certificateTemplate" style="width: 100%; max-width: 850px; margin: 0 auto; background: #fffdf9; color: #1e293b; border: 12px solid #064e3b; padding: 30px; border-radius: 16px; box-shadow: 0 15px 30px rgba(0,0,0,0.12); display: flex; flex-direction: column; justify-content: space-between; text-align: center; position: relative;">
                     <!-- Ornamen Sudut -->
-                    <div style="position: absolute; top: 10px; left: 10px; width: 40px; height: 40px; border-top: 3px solid #d97706; border-left: 3px solid #d97706;"></div>
-                    <div style="position: absolute; top: 10px; right: 10px; width: 40px; height: 40px; border-top: 3px solid #d97706; border-right: 3px solid #d97706;"></div>
-                    <div style="position: absolute; bottom: 10px; left: 10px; width: 40px; height: 40px; border-bottom: 3px solid #d97706; border-left: 3px solid #d97706;"></div>
-                    <div style="position: absolute; bottom: 10px; right: 10px; width: 40px; height: 40px; border-bottom: 3px solid #d97706; border-right: 3px solid #d97706;"></div>
+                    <div style="position: absolute; top: 8px; left: 8px; width: 30px; height: 30px; border-top: 3px solid #d97706; border-left: 3px solid #d97706;"></div>
+                    <div style="position: absolute; top: 8px; right: 8px; width: 30px; height: 30px; border-top: 3px solid #d97706; border-right: 3px solid #d97706;"></div>
+                    <div style="position: absolute; bottom: 8px; left: 8px; width: 30px; height: 30px; border-bottom: 3px solid #d97706; border-left: 3px solid #d97706;"></div>
+                    <div style="position: absolute; bottom: 8px; right: 8px; width: 30px; height: 30px; border-bottom: 3px solid #d97706; border-right: 3px solid #d97706;"></div>
 
-                    <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #d9770644; padding-bottom: 15px;">
+                    <!-- Header Sertifikat -->
+                    <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #d9770644; padding-bottom: 12px; margin-bottom: 10px;">
                         <div style="text-align: left;">
                             <div style="font-weight: 800; font-size: 11px; color: #064e3b; letter-spacing: 1px;">MTs MUHAMMADIYAH BATANG</div>
                             <div style="font-size: 9px; color: #64748b;">Majelis Pendidikan Dasar & Menengah</div>
                         </div>
-                        <div style="width: 45px; height: 45px; border-radius: 50%; background: #064e3b; color: #f59e0b; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 16px;">MB</div>
+                        <div style="width: 40px; height: 40px; border-radius: 50%; background: #064e3b; color: #f59e0b; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 14px;">MB</div>
                         <div style="text-align: right;">
                             <div style="font-weight: 800; font-size: 11px; color: #064e3b; letter-spacing: 1px;">PROGRAM MADRASAH HIJAU</div>
                             <div style="font-size: 9px; color: #64748b;">Green IT & Ekoteologi</div>
                         </div>
                     </div>
 
-                    <div style="margin: 10px 0;">
-                        <span style="display: inline-block; padding: 4px 16px; background: #fef3c7; color: #92400e; font-size: 10px; font-weight: 800; border-radius: 20px; border: 1px solid #f59e0b; text-transform: uppercase; letter-spacing: 2px;">
+                    <!-- Judul Piagam -->
+                    <div style="margin: 5px 0;">
+                        <span style="display: inline-block; padding: 3px 14px; background: #fef3c7; color: #92400e; font-size: 9px; font-weight: 800; border-radius: 15px; border: 1px solid #f59e0b; text-transform: uppercase; letter-spacing: 2px;">
                             Piagam Penghargaan Kehormatan
                         </span>
-                        <h2 style="font-size: 26px; font-weight: 900; color: #064e3b; margin: 8px 0 4px 0; font-family: serif; text-transform: uppercase;">Sertifikat Duta Ekoteologi Digital</h2>
-                        <p style="font-size: 11px; color: #64748b; font-style: italic;">Diberikan secara resmi dan tulus kepada:</p>
+                        <h2 style="font-size: 22px; font-weight: 900; color: #064e3b; margin: 6px 0 2px 0; font-family: serif; text-transform: uppercase;">Sertifikat Duta Ekoteologi Digital</h2>
+                        <p style="font-size: 10px; color: #64748b; font-style: italic;">Diberikan secara resmi dan tulus kepada:</p>
                     </div>
 
-                    <div>
-                        <h3 id="certStudentName" style="font-size: 24px; font-weight: 900; color: #0f172a; text-decoration: underline; text-decoration-color: #f59e0b; text-underline-offset: 6px; margin: 5px 0;">Adib (Kelas 8A)</h3>
+                    <!-- Nama Siswa (Dinamis) -->
+                    <div style="margin: 8px 0;">
+                        <h3 id="certStudentName" style="font-size: 22px; font-weight: 900; color: #0f172a; text-decoration: underline; text-decoration-color: #f59e0b; text-underline-offset: 6px;">Adib (Kelas 8A)</h3>
                     </div>
 
-                    <div style="max-width: 650px; margin: 0 auto;">
-                        <p id="certSummary" style="font-size: 12px; color: #334155; line-height: 1.6; font-weight: 500;">
-                            Atas dedikasi luar biasa dalam aksi nyata pengurangan sampah plastik kantin dan pembersihan jejak karbon digital (Cloud Storage Optimization) di lingkungan MTs Muhammadiyah Batang. Konsisten mengamalkan nilai-nilai Islam dalam menjaga kelestarian bumi.
+                    <!-- Deskripsi / Summary -->
+                    <div style="max-width: 600px; margin: 0 auto;">
+                        <p id="certSummary" style="font-size: 11px; color: #334155; line-height: 1.5; font-weight: 500;">
+                            Atas dedikasi luar biasa dalam aksi nyata pengurangan sampah plastik sebanyak 60 botol dan pembersihan jejak karbon digital (Cloud Storage Optimization) di lingkungan MTs Muhammadiyah Batang. Konsisten mengamalkan nilai-nilai Islam dalam menjaga kelestarian bumi.
                         </p>
                     </div>
 
-                    <div style="display: flex; justify-content: space-between; align-items: flex-end; border-top: 2px solid #d9770644; padding-top: 15px; font-size: 11px;">
+                    <!-- Tanda Tangan & Verifikasi -->
+                    <div style="display: flex; justify-content: space-between; align-items: flex-end; border-top: 2px solid #d9770644; padding-top: 12px; margin-top: 10px; font-size: 10px;">
                         <div style="text-align: left;">
                             <p style="font-weight: 700; color: #334155;">Status Sistem:</p>
-                            <p style="font-size: 10px; color: #064e3b; font-family: monospace;">Google Sheets DB: Terverifikasi Live</p>
+                            <p style="font-size: 9px; color: #064e3b; font-family: monospace;">Google Sheets DB: Terverifikasi Live</p>
                         </div>
                         <div style="text-align: center;">
-                            <div style="width: 50px; height: 50px; margin: 0 auto; border: 2px dashed #d97706; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #b45309; font-size: 9px; font-weight: bold; transform: rotate(-10deg);">VALID</div>
+                            <div style="width: 40px; height: 40px; margin: 0 auto; border: 2px dashed #d97706; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #b45309; font-size: 8px; font-weight: bold; transform: rotate(-10deg);">VALID</div>
                         </div>
                         <div style="text-align: right;">
                             <p style="font-weight: 700; color: #1e293b;">Batang, 2026</p>
-                            <div style="height: 25px;"></div>
-                            <p style="font-weight: 800; color: #064e3b; border-top: 1px solid #cbd5e1; pt: 2px;">Tim Pengembang Eco-Byte</p>
+                            <div style="height: 18px;"></div>
+                            <p style="font-weight: 800; color: #064e3b; border-top: 1px solid #cbd5e1; padding-top: 2px;">Tim Pengembang Eco-Byte</p>
                         </div>
                     </div>
                 </div>
@@ -485,8 +490,10 @@
 
             document.getElementById('statPlastic').innerHTML = `${totalPlastic} <span class="text-xs font-normal text-slate-500">Botol</span>`;
             document.getElementById('statCarbon').innerHTML = `${totalCarbonKg} <span class="text-xs font-normal text-slate-500">kg CO2e</span>`;
+            
+            // Perbarui Nama dan Deskripsi pada Sertifikat secara Real-Time
             document.getElementById('certStudentName').innerText = `${name} (Kelas ${sClass})`;
-            document.getElementById('certSummary').innerText = `Atas dedikasi luar biasa dalam aksi nyata pengurangan sampah plastik sebanyak ${totalPlastic} botol dan pembersihan jejak karbon digital (${totalCarbonKg} kg CO2e) di lingkungan MTs Muhammadiyah Batang.`;
+            document.getElementById('certSummary').innerText = `Atas dedikasi luar biasa dalam aksi nyata pengurangan sampah plastik sebanyak ${totalPlastic} botol dan pembersihan jejak karbon digital (${totalCarbonKg} kg CO2e) di lingkungan MTs Muhammadiyah Batang. Konsisten mengamalkan nilai-nilai Islam dalam menjaga kelestarian bumi.`;
         }
 
         function updateSimulation() {
