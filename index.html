@@ -29,7 +29,7 @@
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
         
-        /* CSS KHUSUS CETAK PDF A4 LANDSCAPE FULL TANPA SISA PUTIH */
+        /* CSS KHUSUS CETAK PDF FULL LANDSCAPE A4 */
         @media print {
             header, footer, #premiumBar, button, .nav-tabs, .no-print {
                 display: none !important;
@@ -48,31 +48,23 @@
             }
             #view-dashboard {
                 display: block !important;
-            }
-            #view-dashboard > div > div:not(#certificateTemplate), #view-dashboard h3, #view-dashboard p {
-                display: none !important;
+                padding: 0 !important;
             }
             #certificateTemplate {
-                position: absolute !important;
-                left: 0 !important;
-                top: 0 !important;
-                width: 297mm !important;
-                height: 210mm !important;
-                max-width: none !important;
-                max-height: none !important;
+                position: fixed !important;
+                inset: 0 !important;
+                width: 100vw !important;
+                height: 100vh !important;
                 border: 14px solid #064e3b !important;
                 background: #fffdf9 !important;
                 z-index: 999999 !important;
                 display: flex !important;
                 flex-direction: column !important;
                 justify-content: space-between !important;
-                align-items: stretch !important;
                 box-shadow: none !important;
                 margin: 0 !important;
-                padding: 20mm 25mm !important;
+                padding: 25px 40px !important;
                 box-sizing: border-box !important;
-                page-break-after: avoid !important;
-                page-break-inside: avoid !important;
             }
         }
     </style>
@@ -544,7 +536,7 @@
                 html2canvas: { scale: 3, useCORS: true, letterRendering: true },
                 jsPDF: { unit: 'mm', format: 'a4', orientation: 'landscape' }
             };
-            html2pdf().set(opt).from(element).save();
+            html2pdf().from(element).set(opt).save();
         }
 
         function saveAuditRecord() {
